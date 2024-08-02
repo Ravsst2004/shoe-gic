@@ -5,7 +5,7 @@ export default function NavbarButton({ showMenu, handleOpenMenu }) {
   return (
     <button
       onClick={handleOpenMenu}
-      className={`w-full bg-slate-900 py-3 flex justify-center border-t-2 border-slate-600 md:hidden`}
+      className={`w-full bg-slate-900 py-3 flex justify-center border-t-2 border-slate-600 md:hidden cursor-pointer relative`}
     >
       {showMenu ? (
         <FaChevronUp className="text-slate-200" />
