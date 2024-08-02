@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Card({ title, description }) {
+export default function Card({ title, description, image }) {
   return (
     <div
       className={`group border-2 border-slate-700 hover:bg-slate-800 cursor-pointer transition-all ease-in-out duration-300 rounded-md mx-4 p-2`}

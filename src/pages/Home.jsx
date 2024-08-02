@@ -1,5 +1,5 @@
-import React from "react";
-import { BiDownArrowAlt } from "react-icons/bi";
+import React, { useRef } from "react";
+import { BiDownArrowAlt, BiLineChartDown } from "react-icons/bi";
 import Card from "../components/ui/Card";
 
 export default function Home() {
@@ -53,19 +53,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full flex flex-col md:gap-y-5 bg-slate-900 text-slate-200 md:px-16 my-14 py-6 md:py-12 md:my-32">
-        <p className="text-center px-6 md:text-xl mb-6">
-          Explore what makes our products unique and find out what sets them
-          apart. Here’s what you might enjoy
-        </p>
-        {/* <div className="flex justify-center items-center cursor-pointer">
+      <section className="w-full md:gap-y-5 bg-slate-900 text-slate-200 md:px-16 my-14 py-6 md:py-12 md:my-32">
+        <div className="flex flex-col">
+          <p className="text-center px-6 md:text-xl mb-6">
+            Explore what makes our products unique and find out what sets them
+            apart. Here’s what you might enjoy
+          </p>
+          {/* <div className="flex justify-center items-center cursor-pointer">
           <BiDownArrowAlt className="relative text-7xl hover:text-8xl transition-all duration-300 md:hidden" />
         </div> */}
-        {/* <div className="absolute h-4 w-full bg-slate-700"></div> */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {cardContents.map((content, index) => (
-            <Card key={index} {...content} />
-          ))}
+          {/* <div className="absolute h-4 w-full bg-slate-700"></div> */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {cardContents.map((content, index) => (
+              <Card key={index} {...content} />
+            ))}
+          </div>
+        </div>
+
+        <hr className="my-16 mx-4" />
+
+        <div className="w-full flex justify-center ">
+          <div className="w-[65%]">
+            <Card />
+          </div>
+          <div className="w-[35%]"></div>
         </div>
       </section>
     </>
