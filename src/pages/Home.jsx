@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { BiDownArrowAlt, BiLineChartDown } from "react-icons/bi";
 import Card from "../components/ui/Card";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const cardContents = [
@@ -41,7 +42,10 @@ export default function Home() {
             </p>
           </div>
 
-          <h1 className="text-xl cursor-pointer p-4 bg-slate-900 font-semibold rounded-xl group text-gray-200 hover:text-purple-600 transition ease-in-out duration-200">
+          <Link
+            to={"/products"}
+            className="text-xl cursor-pointer p-4 bg-slate-900 font-semibold rounded-xl group text-gray-200 hover:text-purple-600 transition ease-in-out duration-200"
+          >
             Dress your style{" "}
             <span
               aria-hidden="true"
@@ -49,13 +53,13 @@ export default function Home() {
             >
               →
             </span>
-          </h1>
+          </Link>
         </div>
       </section>
 
       <section className="w-full md:gap-y-5 bg-slate-900 text-slate-200 md:px-16 my-14 py-6 md:py-12 md:my-32">
         <div className="flex flex-col">
-          <p className="text-center px-6 md:text-xl mb-6">
+          <p className="text-center px-6 md:text-xl mb-8">
             Explore what makes our products unique and find out what sets them
             apart. Here’s what you might enjoy
           </p>
@@ -65,7 +69,12 @@ export default function Home() {
           {/* <div className="absolute h-4 w-full bg-slate-700"></div> */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {cardContents.map((content, index) => (
-              <Card key={index} {...content} />
+              <Card
+                key={index}
+                {...content}
+                customClassName="group"
+                titleClassName="group-hover:text-purple-400 transition-colors duration-200 ease-in text-xl font-semibold"
+              />
             ))}
           </div>
         </div>
