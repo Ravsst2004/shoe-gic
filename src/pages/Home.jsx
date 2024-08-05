@@ -82,9 +82,7 @@ export default function Home() {
         <hr className="my-16 mx-4" />
 
         <div className="w-full flex justify-center ">
-          <div className="w-[65%]">
-            <Card />
-          </div>
+          <div className="w-[65%]">{/* <Card /> */}</div>
           <div className="w-[35%]"></div>
         </div>
       </section>
