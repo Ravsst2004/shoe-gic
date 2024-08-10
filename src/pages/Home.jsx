@@ -44,7 +44,7 @@ export default function Home() {
 
           <Link
             to={"/products"}
-            className="text-xl cursor-pointer p-4 bg-slate-900 font-semibold rounded-xl group text-gray-200 hover:text-purple-600 transition ease-in-out duration-200"
+            className="text-xl cursor-pointer p-4 bg-slate-900 font-semibold rounded-xl group text-gray-200 hover:text-purple-500 transition ease-in-out duration-200"
           >
             Dress your style{" "}
             <span
@@ -72,7 +72,7 @@ export default function Home() {
               <Card
                 key={index}
                 {...content}
-                customClassName="group"
+                className="group mx-4"
                 titleClassName="group-hover:text-purple-400 transition-colors duration-200 ease-in text-xl font-semibold"
               />
             ))}

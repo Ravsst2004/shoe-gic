@@ -7,8 +7,9 @@ import useFetch from "../../hooks/useFetch";
 
 export default function Products() {
   const { data: dataProducts } = useFetch(
-    "https://api.escuelajs.co/api/v1/products/?offset=1&limit=10"
+    "https://api.escuelajs.co/api/v1/products"
   );
+  console.log(dataProducts);
 
   return (
     <div className="flex flex-col justify-center items-center mt-20 md:gap-y-8 md:mt-10">
@@ -27,7 +28,7 @@ export default function Products() {
                 : product.description
             }
             image={product.images[0]}
-            customClassName="bg-slate-900 text-white"
+            className="bg-slate-900 text-white transition-all ease-in-out duration-300"
             titleClassName="text-purple-500 font-bold pt-2 text-xl"
             descriptionClassName="text-gray-300"
             buttonClassName="mt-2 w-full bg-slate-50 text-slate-800 font-semibold hover:bg-transparent hover:text-slate-200 transition ease-in duration-150"
