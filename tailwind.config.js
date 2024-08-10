@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         urbanist: ["Urbanist", "sans-serif"],
+        lora: ["Lora", "serif"],
       },
     },
   },

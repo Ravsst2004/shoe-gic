@@ -10,6 +10,7 @@ export default function Card({
   titleClassName = "",
   descriptionClassName = "",
   buttonClassName = "",
+  ...props
 }) {
   const [isImageError, setIsImageError] = useState(false);
 
@@ -19,6 +20,7 @@ export default function Card({
 
   return (
     <div
+      {...props}
       className={`${className} border-2 border-slate-700 cursor-pointer rounded-md p-2`}
     >
       {image && !isImageError && (
@@ -26,7 +28,7 @@ export default function Card({
           src={image}
           alt={title}
           onError={handleImageError}
-          className="w-full h-48 object-fill"
+          className="w-full h-48 object-cover"
         />
       )}
       <h1 className={` ${titleClassName}`}>{title}</h1>
