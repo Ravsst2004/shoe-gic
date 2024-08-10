@@ -11,27 +11,24 @@ export default function Home() {
       title: "Premium Quality",
       description:
         "Crafted with top-notch materials for unmatched durability and performance.",
-      image:
-        "https://images.unsplash.com/photo-1605348532760-6753d2c43329?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "../../public/image/home-1.png",
     },
     {
       title: "Exceptional Designs",
       description:
         "Discover our unique and stylish designs that make a statement.",
-      image:
-        "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D",
+      image: "../../public/image/home-2.png",
     },
     {
       title: "Affordable Luxury",
       description: "Experience high-end quality without the high-end price.",
-      image:
-        "https://images.unsplash.com/photo-1605408499391-6368c628ef42?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D",
+      image: "../../public/image/home-3.png",
     },
   ];
 
   const [onHover, setOnHover] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [selectedCard, setSelectedCard] = useState([]);
+  const [selectedCard, setSelectedCard] = useState(cardContents[0] || {});
 
   const handleOpenModal = (title, description, image) => {
     setShowModal(true);
@@ -86,45 +83,52 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full md:gap-y-5 bg-slate-900 text-slate-200 md:px-52 my-14 py-6 md:my-32">
+      <section className="w-full md:gap-y-5 bg-slate-900 text-slate-200 md:px-14 lg:px-24 xl:px-56 my-14 py-6 md:my-32">
         <div className="flex flex-col">
           <p className="text-center px-6 md:text-xl mb-8">
             Explore what makes our shoes unique and discover what sets them
             apart. Here’s what you might enjoy.
           </p>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            {cardContents.map((content, index) => (
-              <Card
-                key={index}
-                title={content.title}
-                description={content.description}
-                onClick={() =>
-                  handleOpenModal(
-                    content.title,
-                    content.description,
-                    content.image
-                  )
-                }
-                className="group mx-4"
-                titleClassName="group-hover:text-purple-400 transition-colors duration-200 ease-in text-xl font-semibold"
-              />
-            ))}
 
-            <Modal show={showModal} onClose={handleCloseModal}>
-              <div className="flex flex-col gap-y-2">
-                <img
-                  className="object-cover h-96 w-full"
-                  src={selectedCard.image}
-                  alt={selectedCard.title}
+          <div className="w-full flex flex-col lg:flex-row lg:gap-x-10 justify-center items-center">
+            <div className="lg:w-[50%] grid grid-cols-1 gap-y-4">
+              {cardContents.map((content, index) => (
+                <Card
+                  key={index}
+                  title={content.title}
+                  description={content.description}
+                  onClick={() =>
+                    handleOpenModal(
+                      content.title,
+                      content.description,
+                      content.image
+                    )
+                  }
+                  className={`group mx-4 lg:w-full xl:w-[38rem] ${
+                    selectedCard.title === content.title
+                      ? "bg-slate-700 bg-opacity-60"
+                      : "hover:bg-slate-700 bg-opacity-60 transition-colors duration-200 ease-in"
+                  }`}
+                  titleClassName={` transition-colors duration-200 ease-in text-xl font-semibold ${
+                    selectedCard.title === content.title
+                      ? "text-purple-500"
+                      : ""
+                  }`}
                 />
-                <h1 className="text-xl font-bold">{selectedCard.title}</h1>
-                <p>{selectedCard.description}</p>
-              </div>
-            </Modal>
+              ))}
+            </div>
+
+            <div className="lg:w-[50%] border-y-2 mt-10 lg:mt-0 flex justify-center items-center mx-4">
+              <img
+                src={selectedCard.image}
+                alt=""
+                className="transition-all ease-in-out duration-200 w-full md:w-[30rem] lg:w-[22rem] xl:w-[30rem] object-cover"
+              />
+            </div>
           </div>
         </div>
 
-        <hr className="my-16 mx-4" />
+        {/* <hr className="my-16 mx-4" /> */}
 
         <div className="w-full flex justify-center ">
           <div className="w-[65%]">{/* <Card /> */}</div>
