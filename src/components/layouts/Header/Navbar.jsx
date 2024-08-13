@@ -10,7 +10,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className=" text-slate-200 fixed top-0 left-0 w-full z-50">
+      <nav className=" text-slate-200 fixed top-0 left-0 w-full z-50 md:border-b-2">
         <div className="relative w-full bg-slate-900 py-6 px-4 md:py-4 md:px-28 lg:px-60 z-20">
           <div className="flex justify-center md:justify-between items-center ">
             {" "}

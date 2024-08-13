@@ -1,5 +1,6 @@
 "library":{
   https://www.npmjs.com/package/react-icons,
   https://www.npmjs.com/package/react-icons,
-  https://reactrouter.com/en/main/start/tutorial
+  https://reactrouter.com/en/main/start/tutorial,
+  https://react-slick.neostack.com/docs/get-started
 }
