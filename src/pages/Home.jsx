@@ -3,31 +3,43 @@ import Card from "../components/ui/Card";
 import { Link } from "react-router-dom";
 import Layouts from "../components/layouts/Layouts";
 import Slider from "react-slick";
+import Modal from "../components/ui/Modal";
+import premiumQualitySvg from "../assets/svg/premium-quality.svg";
+import exceptionalDesignsSvg from "../assets/svg/exceptional-designs.svg";
+import affordableLuxurySvg from "../assets/svg/affordable-luxury.svg";
+import ecoFriendlySvg from "../assets/svg/eco-friendly.svg";
 
 export default function Home() {
   const cardContents = [
     {
       title: "Premium Quality",
       description:
-        "Crafted with top-notch materials for unmatched durability and performance.",
-      image: "../../public/image/home-1.png",
+        "Built with top-tier materials for exceptional durability and performance. Every detail is crafted with care to ensure long-lasting reliability.",
+      image: premiumQualitySvg,
     },
     {
       title: "Exceptional Designs",
       description:
-        "Discover our unique and stylish designs that make a statement.",
-      image: "../../public/image/home-2.png",
+        "Explore unique designs that blend style and functionality, offering both comfort and a distinctive look for any occasion.",
+      image: exceptionalDesignsSvg,
     },
     {
       title: "Affordable Luxury",
-      description: "Experience high-end quality without the high-end price.",
-      image: "../../public/image/home-3.png",
+      description:
+        "Enjoy high-end quality at a price you can afford. Luxury shouldn't come at a premium, and with us, it doesn't have to.",
+      image: affordableLuxurySvg,
+    },
+    {
+      title: "Eco-Friendly",
+      description:
+        "Choose sustainable products made with the planet in mind. Our eco-friendly options help you make responsible choices without compromise.",
+      image: ecoFriendlySvg,
     },
   ];
 
   const [onHover, setOnHover] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [selectedCard, setSelectedCard] = useState(cardContents[0]);
+  const [selectedCard, setSelectedCard] = useState(null);
   const [activeSlide, setActiveSlide] = useState(0);
 
   const bestSellersShoes = [
@@ -47,7 +59,7 @@ export default function Home() {
         <div
           className={`${
             i === activeSlide ? "bg-slate-800" : "bg-slate-700"
-          } border-2 border-slate-700 rounded-full w-4 h-4`}
+          } border-2 border-slate-700 rounded-full mt-3 w-4 h-4`}
         ></div>
       );
     },
@@ -116,41 +128,65 @@ export default function Home() {
               apart. Here’s what you might enjoy.
             </p>
 
-            <div className="flex flex-col items-center justify-center w-full lg:flex-row lg:gap-x-10 2xl:px-32 px-4">
-              <div className="lg:w-[50%] grid grid-cols-1 gap-y-4 ">
-                {cardContents.map((content, index) => (
-                  <Card
-                    key={index}
-                    title={content.title}
-                    description={content.description}
-                    onClick={() =>
-                      handleOpenModal(
-                        content.title,
-                        content.description,
-                        content.image
-                      )
-                    }
-                    className={`group lg:w-full xl:w-full ${
-                      selectedCard.title === content.title
-                        ? "bg-slate-700 bg-opacity-60"
-                        : "hover:bg-slate-700 bg-opacity-60 transition-colors duration-200 ease-in"
-                    }`}
-                    titleClassName={`transition-colors duration-200 ease-in text-xl font-semibold ${
-                      selectedCard.title === content.title
-                        ? "text-purple-500"
-                        : ""
-                    }`}
-                  />
-                ))}
+            <div className="flex flex-col items-center justify-center w-full lg:flex-row lg:gap-x-10 px-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 ">
+                {cardContents.map(
+                  (content, index) =>
+                    content !== null && (
+                      <Card
+                        key={index}
+                        title={content.title}
+                        description={content.description.slice(0, 50) + " ...."}
+                        onClick={() =>
+                          handleOpenModal(
+                            content.title,
+                            content.description,
+                            content.image
+                          )
+                        }
+                        className={`group lg:w-full xl:w-full ${
+                          selectedCard &&
+                          selectedCard.title === content.title &&
+                          selectedCard !== null
+                            ? "bg-slate-700 bg-opacity-60"
+                            : "hover:bg-slate-700 bg-opacity-60 transition-colors duration-200 ease-in"
+                        }`}
+                        titleClassName={`transition-colors duration-200 ease-in text-xl font-semibold ${
+                          selectedCard &&
+                          selectedCard.title === content.title &&
+                          selectedCard !== null
+                            ? "text-purple-500"
+                            : ""
+                        }`}
+                      />
+                    )
+                )}
               </div>
 
-              <div className="lg:w-[50%] border-y-2 lg:border-y-0 mt-10 lg:mt-0 flex justify-center max-w-lg items-center">
+              <Modal show={showModal} onClose={() => setShowModal(false)}>
+                {selectedCard && (
+                  <div className="flex flex-col gap-y-2">
+                    <h1 className="text-xl font-bold">{selectedCard.title}</h1>
+                    <p className="font-normal text-justify">
+                      {selectedCard.description}
+                    </p>
+                    <img
+                      src={selectedCard.image}
+                      alt={selectedCard.title + " image"}
+                      className="transition-all ease-in-out duration-200 w-full h-full xl:w-[80%] xl:h-[80%] object-contain"
+                    />
+                    <hr />
+                  </div>
+                )}
+              </Modal>
+
+              {/* <div className="lg:w-[50%] border-y-2 lg:border-y-0 mt-10 lg:mt-0 flex justify-center max-w-lg items-center">
                 <img
                   src={selectedCard.image}
                   alt=""
                   className="transition-all ease-in-out duration-200 w-full object-cover"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -170,16 +206,15 @@ export default function Home() {
 
           <Slider {...settings} className="w-full lg:hidden cursor-pointer">
             {bestSellersShoes.map((shoe, index) => (
-              <div key={index} className="w-full">
-                <img
-                  src={shoe}
-                  className="w-full object-cover h-[30rem] rounded-xl"
-                />
-              </div>
+              <img
+                key={index}
+                src={shoe}
+                className="w-full object-cover h-[25rem] rounded-xl"
+              />
             ))}
           </Slider>
 
-          <div className="hidden lg:grid w-full grid-cols-3 gap-x-2">
+          <div className="hidden lg:grid w-full grid-cols-3 gap-x-4">
             {bestSellersShoes.map((shoe, index) => (
               <div key={index} className="w-full">
                 <img
