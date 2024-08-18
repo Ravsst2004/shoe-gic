@@ -9,7 +9,7 @@ export default function NavbarMenu() {
   const currentPath = window.location.pathname;
 
   return (
-    <ul className=" font-medium flex flex-col md:items-center p-4 md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 bg-white md:bg-transparent">
+    <ul className="border-t-2 font-medium flex flex-col md:items-center p-4 md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 bg-white md:bg-transparent">
       {menuLinks.map((link) => (
         <li key={link.name}>
           <a

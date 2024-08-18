@@ -11,10 +11,10 @@ export default function Navbar() {
   return (
     <>
       <nav className=" text-slate-200 fixed top-0 left-0 w-full z-50 md:border-b-2">
-        <div className="relative w-full bg-slate-900 py-6 px-4 md:py-4 md:px-28 lg:px-60 z-20">
+        <div className="relative w-full bg-white py-6 px-4 md:py-4 md:px-28 lg:px-60 z-20">
           <div className="flex justify-center md:justify-between items-center ">
             {" "}
-            <h1 className="text-3xl font-bold text-center md:text-start">
+            <h1 className="text-3xl text-slate-950 font-bold text-center md:text-start">
               ShoeGic.
             </h1>
             <div className="hidden md:block">
@@ -25,7 +25,7 @@ export default function Navbar() {
 
         {/* Menu */}
         <div
-          className={`absolute top-full left-0 w-full bg-slate-900 transition-transform duration-500 md:hidden ${
+          className={`absolute top-full left-0 w-full bg-white transition-transform duration-500 md:hidden ${
             showMenu ? "translate-y-0" : "-translate-y-[9.5rem]"
           } z-10 overflow-y-hidden`}
         >

@@ -4,9 +4,9 @@ import premiumQualitySvg from "../assets/svg/premium-quality.svg";
 import exceptionalDesignsSvg from "../assets/svg/exceptional-designs.svg";
 import affordableLuxurySvg from "../assets/svg/affordable-luxury.svg";
 import ecoFriendlySvg from "../assets/svg/eco-friendly.svg";
-import HomeFirstSection from "../components/ui/HomeSection/HomeFirstSection";
-import HomeSecondSection from "../components/ui/HomeSection/HomeSecondSection";
-import HomeThirdSection from "../components/ui/HomeSection/HomeThirdSection";
+import UniqueLoved from "../components/ui/HomeSection/UniqueLoved";
+import Hero from "../components/ui/HomeSection/Hero";
+import OnSales from "../components/ui/HomeSection/OnSales";
 
 export default function Home() {
   const [onHover, setOnHover] = useState(false);
@@ -45,6 +45,9 @@ export default function Home() {
     "https://images.unsplash.com/photo-1512374382149-233c42b6a83b?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1608229751021-ed4bd8677753?q=80&w=1959&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1620138546344-7b2c38516edf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8",
+    "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://images.unsplash.com/photo-1619521440807-ba72afd67b12?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHx8",
   ];
 
   const handleOpenModal = (title, description, image) => {
@@ -58,13 +61,15 @@ export default function Home() {
 
   return (
     <Layouts>
-      <HomeFirstSection
+      {" "}
+      <OnSales />
+      <Hero
         onHover={onHover}
         setOnHover={setOnHover}
         activeSlide={activeSlide}
         setActiveSlide={setActiveSlide}
       />
-      <HomeSecondSection
+      <UniqueLoved
         showModal={showModal}
         setShowModal={setShowModal}
         cardContents={cardContents}
@@ -74,7 +79,6 @@ export default function Home() {
         activeSlide={activeSlide}
         setActiveSlide={setActiveSlide}
       />
-      <HomeThirdSection />
     </Layouts>
   );
 }

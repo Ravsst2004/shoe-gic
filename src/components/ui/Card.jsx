@@ -9,6 +9,7 @@ export default function Card({
   className = "",
   titleClassName = "",
   descriptionClassName = "",
+  imageClassName = "",
   buttonClassName = "",
   ...props
 }) {
@@ -28,7 +29,7 @@ export default function Card({
           src={image}
           alt={title}
           onError={handleImageError}
-          className="w-full h-48 object-cover"
+          className={`w-full ${imageClassName}`}
         />
       )}
       <h1 className={` ${titleClassName}`}>{title}</h1>

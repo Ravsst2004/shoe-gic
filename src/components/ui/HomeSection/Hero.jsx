@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function HomeFirstSection({ onHover, setOnHover }) {
+export default function Hero({ onHover, setOnHover }) {
   return (
     <section className="w-full">
       <div className="flex flex-col items-center justify-center mt-56 gap-y-6 md:gap-y-8">
         <h1 className="text-5xl font-extrabold tracking-tighter text-center md:text-6xl md:px-2 font-urbanist">
-          Discover the <span className="text-purple-600 underline">Magic</span>{" "}
-          in Every Shoes
+          Discover the{" "}
+          <span className="text-red-600 underline italic">Magic</span> in Every
+          Shoes
         </h1>
         <div className="relative">
           <p className="relative z-10 px-10 text-lg text-center md:text-xl xl:px-72">
