@@ -1,21 +1,36 @@
 import React from "react";
 import Input from "./Input";
 import Button from "./Button";
+import { CiSearch } from "react-icons/ci";
+import { IoMdClose } from "react-icons/io";
 
-export default function InputSearch() {
+export default function InputSearch({ handleCloseSearch, closeButton }) {
   return (
-    <div className="w-full flex flex-col gap-y-2 justify-center bg-transparent">
-      <Input
-        type="text"
-        className="border-2 border-slate-700 rounded-md p-2 mx-4"
-      />
-      <Button
-        className={
-          "text-slate-200 hover:text-slate-800 bg-slate-800 hover:bg-transparent transition ease-in-out duration-300 font-semibold mx-4"
-        }
-      >
-        Search
-      </Button>
+    <div className="flex mx-auto bg-white py-14 lg:py-0">
+      {closeButton && (
+        <div
+          onClick={handleCloseSearch}
+          className="absolute top-0 right-0 p-4 cursor-pointer "
+        >
+          <IoMdClose className="text-xl hover:text-red-600" />
+        </div>
+      )}
+
+      <div className="flex">
+        <Input
+          type="text"
+          placeholder="Search..."
+          className="border-y-2 border-l-2 rounded-l w-full lg:h-8 border-red-600 p-2 focus:border-red-600 focus:outline-none placeholder:text-sm"
+        />
+
+        <Button
+          className={
+            "flex items-center text-slate-200 border-red-600 hover:text-slate-800 px-4 lg:h-8 bg-red-600 rounded-r hover:bg-transparent transition ease-in-out duration-300 font-semibold"
+          }
+        >
+          <CiSearch className="text-xl" />
+        </Button>
+      </div>
     </div>
   );
 }
