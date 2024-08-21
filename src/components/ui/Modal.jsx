@@ -16,7 +16,7 @@ export default function Modal({ show = false, children, onClose }) {
       onClick={handleClose}
       className="fixed inset-0 z-50 flex justify-center items-center w-full h-screen overflow-y-auto overflow-x-hidden bg-black bg-opacity-50 cursor-pointer"
     >
-      <div className="relative mx-20 md:mx-60 w-full max-w-2xl max-h-screen cursor-default">
+      <div className="relative mx-10 sm:mx-28 md:mx-32 xl:mx-40 w-full max-w-3xl max-h-screen cursor-default">
         <div className="relative rounded-lg shadow mx-auto">{children}</div>
       </div>
     </div>

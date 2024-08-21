@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Layouts from "../components/layouts/Layouts";
 import premiumQualitySvg from "../assets/svg/premium-quality.svg";
 import exceptionalDesignsSvg from "../assets/svg/exceptional-designs.svg";
 import affordableLuxurySvg from "../assets/svg/affordable-luxury.svg";
 import ecoFriendlySvg from "../assets/svg/eco-friendly.svg";
-import UniqueLoved from "../components/ui/HomeSection/UniqueLoved";
 import OnSales from "../components/ui/HomeSection/OnSales";
-import { Link } from "react-router-dom";
-import Card from "../components/ui/Card";
 import Modal from "../components/ui/Modal";
-
+import {
+  FaArrowsUpDownLeftRight,
+  FaCartShopping,
+  FaHeart,
+} from "react-icons/fa6";
+import Button from "../components/ui/Button";
+import Input from "../components/ui/Input";
+import Select from "../components/ui/Select";
 export default function Home() {
   const [onHover, setOnHover] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -56,55 +60,55 @@ export default function Home() {
     {
       title: "Casual",
       image: "../../public/image/featuredItems/featured (1).jpg",
-      price: "$50",
+      price: 50,
       description:
         "Perfect for everyday wear, these casual shoes blend style and comfort.",
     },
     {
       title: "Party van",
       image: "../../public/image/featuredItems/featured (2).jpg",
-      price: "$40",
+      price: 40,
       description:
         "Stand out at any event with these bold and vibrant party shoes.",
     },
     {
       title: "Goliath",
       image: "../../public/image/featuredItems/featured (3).jpg",
-      price: "$60",
+      price: 60,
       description:
         "Unleash your strength with Goliath – powerful shoes built for endurance.",
     },
     {
       title: "Training",
       image: "../../public/image/featuredItems/featured (4).jpg",
-      price: "$55",
+      price: 55,
       description:
         "Designed for athletes, these training shoes provide support during workouts.",
     },
     {
       title: "Schoolboy",
       image: "../../public/image/featuredItems/featured (5).jpg",
-      price: "$75",
+      price: 75,
       description: "Classic and stylish, perfect for school or casual outings.",
     },
     {
       title: "Casual zip",
       image: "../../public/image/featuredItems/featured (6).jpg",
-      price: "$65",
+      price: 65,
       description:
         "Easy to slip on and off, these casual shoes offer convenience with style.",
     },
     {
       title: "Mamen",
       image: "../../public/image/featuredItems/featured (7).jpg",
-      price: "$85",
+      price: 85,
       description:
         "Luxury meets comfort with Mamen, perfect for those who demand the best.",
     },
     {
       title: "Just gimme my money 🤫",
       image: "../../public/image/featuredItems/featured (8).jpg",
-      price: "$45",
+      price: 45,
       description:
         "Make a statement with these unique shoes that are all about confidence and flair.",
     },
@@ -114,6 +118,26 @@ export default function Home() {
     setShowModal(true);
     setSelectedCard(items);
   };
+
+  const incrementDecrementButtonCard = (
+    <div className="flex border-2 w-fit border-slate-200 px-1">
+      <button>-</button>
+      <input type="text" defaultValue={1} className="w-10 text-center" />
+      <button>+</button>
+    </div>
+  );
+
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showModal]);
 
   return (
     <Layouts>
@@ -133,40 +157,105 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 lg:px-10">
-            {featuredShoes.map((shoe, index) => (
-              <div
-                key={index}
-                className="cursor-pointer "
-                onClick={() =>
-                  handleOpenModal({
-                    title: shoe.title,
-                    description: shoe.description,
-                    image: shoe.image,
-                    price: shoe.price,
-                  })
-                }
-              >
-                <div className="absolute p-2 m-2 rounded-lg text-sm bg-red-600 text-slate-100 ">
-                  -50%
-                </div>
-                <div className="p-4 border-2 border-slate-300 rounded-xl hover:bg-slate-200">
-                  <img src={shoe.image} className="w-full rounded-xl" alt="" />
-                </div>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 px-5 lg:px-10">
+            {featuredShoes.map((shoe, index) => {
+              const discountedPrice = shoe.price * (1 - 0.5);
 
-            {/* <Modal onClose={() => setShowModal(false)} show={showModal}>
+              return (
+                <div key={index} className="w-full relative">
+                  <div className="absolute top-2 left-2 cursor-default p-2 rounded-lg text-sm h-fit bg-red-600 text-slate-100">
+                    -50%
+                  </div>
+
+                  <div className="absolute top-2 right-2 flex flex-col gap-y-4 text-white text-lg">
+                    <div className="cursor-pointer bg-slate-100 bg-opacity-15 border-2 rounded p-2 hover:bg-red-600 transition-colors ease-in">
+                      <FaHeart />
+                    </div>
+                    <div className="cursor-pointer bg-slate-100 bg-opacity-15 border-2 rounded p-2 hover:bg-red-600 transition-colors ease-in">
+                      <FaCartShopping />
+                    </div>
+                    <div
+                      onClick={() =>
+                        handleOpenModal({
+                          title: shoe.title,
+                          description: shoe.description,
+                          image: shoe.image,
+                          price: shoe.price,
+                          discountedPrice: discountedPrice,
+                        })
+                      }
+                      className="cursor-pointer bg-slate-100 bg-opacity-15 border-2 rounded p-2 hover:bg-red-600 transition-colors ease-in"
+                    >
+                      <FaArrowsUpDownLeftRight />
+                    </div>
+                  </div>
+
+                  {/* Image */}
+                  <img
+                    src={shoe.image}
+                    className="w-full h-full object-cover rounded-md"
+                    alt=""
+                  />
+                </div>
+              );
+            })}
+
+            <Modal onClose={() => setShowModal(false)} show={showModal}>
               {selectedCard && (
-                <div className="bg-white rounded p-2 mx-24">
-                  <h1 className="text-lg font-semibold">
-                    {selectedCard.title}
-                  </h1>
-                  <p>{selectedCard.description}</p>
-                  <p>{selectedCard.price}</p>
+                <div className="flex flex-col md:flex-row gap-4 bg-white rounded-lg p-2 lg:p-6">
+                  <div className="md:w-[40rem]">
+                    <img
+                      src={selectedCard.image}
+                      alt={setSelectedCard.title}
+                      className="rounded-md"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-y-2">
+                    <h1 className="text-xl md:text-2xl font-semibold">
+                      {selectedCard.title} shoes
+                    </h1>
+                    <p className="md:text-lg">
+                      {" "}
+                      <span className="line-through pr-2">
+                        ${selectedCard.price}
+                      </span>
+                      <span className="text-red-600">
+                        ${selectedCard.discountedPrice}
+                      </span>
+                    </p>
+                    <p className="text-sm md:text-base">
+                      {selectedCard.description}
+                    </p>
+
+                    <form action="">
+                      <div className="flex flex-col gap-y-4">
+                        <Select
+                          label="Size: "
+                          className="w-full text-sm md:text-lg border-slate-200 border-2 text"
+                        >
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                        </Select>
+                        <Select
+                          label="Color: "
+                          className="w-full text-sm md:text-lg border-slate-200 border-2 text"
+                        >
+                          <option value="red">red</option>
+                          <option value="blue">blue</option>
+                        </Select>
+
+                        <div className="flex gap-x-6 text-sm ">
+                          {incrementDecrementButtonCard}
+                          <Button className="bg-slate-900  w-fit border-slate-900 text-slate-100">
+                            ADD TO CART
+                          </Button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               )}
-            </Modal> */}
+            </Modal>
           </div>
 
           {/* <Link

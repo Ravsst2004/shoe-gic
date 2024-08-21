@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Input({ label, ...props }) {
+export default function Select({ label, ...props }) {
   return (
     <div>
       {label && <label className="text-sm md:text-base">{label}</label>}
-      <input {...props} />
+      <select {...props}></select>
     </div>
   );
 }
