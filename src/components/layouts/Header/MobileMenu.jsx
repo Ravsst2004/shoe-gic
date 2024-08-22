@@ -39,7 +39,7 @@ export default function MobileMenu({
       >
         <div
           onClick={handleCloseMobileMenu}
-          className="flex items-center justify-between gap-x-32 md:gap-x-48 p-4 bg-red-500 text-white cursor-pointer"
+          className="flex items-center justify-between uppercase font-semibold gap-x-32 md:gap-x-48 p-4 bg-red-500 text-white cursor-pointer"
         >
           Menu <span>{"<"}</span>
         </div>

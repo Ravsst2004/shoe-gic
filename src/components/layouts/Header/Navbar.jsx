@@ -9,10 +9,12 @@ import InputSearch from "../../ui/InputSearch";
 import { IoMenuOutline } from "react-icons/io5";
 import MobileMenu from "./MobileMenu";
 import DesktopMenu from "./DesktopMenu";
+import CartMenu from "./CartMenu";
 
 export default function Navbar() {
   const [showSearch, setShowSearch] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showCart, setShowCart] = useState(false);
   // const menuRef = useRef(null);
 
   const handleShowSearch = () => {
@@ -21,6 +23,10 @@ export default function Navbar() {
 
   const handleShowMobileMenu = () => {
     showMobileMenu ? setShowMobileMenu(false) : setShowMobileMenu(true);
+  };
+
+  const handleShowCart = () => {
+    showCart ? setShowCart(false) : setShowCart(true);
   };
 
   const linkMenu = [
@@ -55,7 +61,10 @@ export default function Navbar() {
           <div className="flex justify-center items-center gap-x-3 text-2xl">
             <CiSearch onClick={handleShowSearch} className="cursor-pointer" />
             <CiHeart />
-            <CiShoppingCart />
+            <CiShoppingCart
+              className="cursor-pointer"
+              onClick={handleShowCart}
+            />
             <IoMenuOutline
               className="cursor-pointer"
               onClick={handleShowMobileMenu}
@@ -92,7 +101,10 @@ export default function Navbar() {
             <div className="flex items-center gap-x-2">
               <InputSearch />
               <CiHeart className="text-3xl" />
-              <CiShoppingCart className="text-3xl" />
+              <CiShoppingCart
+                className="text-3xl cursor-pointer"
+                onClick={handleShowCart}
+              />
             </div>
           </div>
 
@@ -102,27 +114,13 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* <nav className=" text-slate-200 fixed top-0 left-0 w-full z-50 md:border-b-2">
-        <div className="relative w-full bg-white py-6 px-4 md:py-4 md:px-28 lg:px-60 z-20">
-          <div className="flex justify-center md:justify-between items-center ">
-            <h1 className="text-3xl text-slate-950 font-bold text-center md:text-start">
-              ShoeGic.
-            </h1>
-            <div className="hidden md:block">
-              <NavbarMenu />
-            </div>
-          </div>
-        </div>
-
-        <div
-          className={`absolute top-full left-0 w-full bg-white transition-transform duration-500 md:hidden ${
-            showMenu ? "translate-y-0" : "-translate-y-[9.5rem]"
-          } z-10 overflow-y-hidden`}
-        >
-          <NavbarMenu />
-          <NavbarButton showMenu={showMenu} handleOpenMenu={handleOpenMenu} />
-        </div>
-      </nav> */}
+      {/* Cart Menu */}
+      <div>
+        <CartMenu
+          handleCloseCartMenu={handleShowCart}
+          showCartMenu={showCart}
+        />
+      </div>
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   FaArrowsUpDownLeftRight,
   FaCartShopping,
@@ -9,14 +9,17 @@ export default function ProductCard({
   shoe,
   handleOpenModal,
   discountedPrice,
+  discount = false,
 }) {
   return (
     <div className="w-full relative">
-      <div className="absolute top-2 left-2 cursor-default p-2 rounded-lg text-sm h-fit bg-red-600 text-slate-100">
-        -50%
-      </div>
+      {discount && (
+        <div className="absolute top-2 left-2 cursor-default p-2 rounded-lg text-sm h-fit bg-red-600 text-slate-100">
+          -50%
+        </div>
+      )}
 
-      <div className="absolute top-2 right-2 flex flex-col gap-y-4 text-white text-lg">
+      <div className="absolute top-2 right-2 flex flex-col gap-y-4 text-white text-lg ">
         <div className="cursor-pointer bg-slate-100 bg-opacity-15 border-2 rounded p-2 hover:bg-red-600 transition-colors ease-in">
           <FaHeart />
         </div>
@@ -42,7 +45,7 @@ export default function ProductCard({
       {/* Image */}
       <img
         src={shoe.image}
-        className="w-full h-full object-cover rounded-md"
+        className="w-full lg:w-[22rem] h-full object-cover rounded-md"
         alt=""
       />
     </div>

@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function Button({ children, className }) {
+export default function Button({ children, className, ...props }) {
   return (
-    <button className={`border-2 cursor-pointer p-2 ${className}`}>
+    <button {...props} className={`border-2 cursor-pointer p-2 ${className}`}>
       {children}
     </button>
   );
