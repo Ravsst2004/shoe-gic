@@ -4,8 +4,13 @@ import { CartContext } from "../../../store/cartContext";
 import { TiDelete } from "react-icons/ti";
 
 export default function CartMenu({ handleCloseCartMenu, showCartMenu }) {
-  const { items } = useContext(CartContext);
-  console.log(items);
+  const { items, handleUpdateItemQuantity, handleRemoveItemFromCart } =
+    useContext(CartContext);
+  console.log(`Items: `, items);
+
+  const subTotal = items.reduce((total, item) => {
+    return total + item.price * item.quantity;
+  }, 0);
 
   const handleClickOutside = (e) => {
     if (e.target === e.currentTarget) {
@@ -14,22 +19,40 @@ export default function CartMenu({ handleCloseCartMenu, showCartMenu }) {
   };
 
   const ItemsBox = (
-    <div className="flex flex-col items-center justify-center gap-y-4">
+    <div className="flex flex-col items-center justify-center gap-y-4 w-30 md:w-full ">
       {items && items.length > 0 ? (
         items.map((item, index) => (
           <div
             key={index}
-            className="flex justify-between w-full shadow rounded"
+            className="flex flex-col justify-between w-full shadow rounded gap-x-4 "
           >
-            <img src={item.image} alt="" className="w-[5rem]" />
-            <div className="flex flex-col">
-              <p>{item.title} shoes</p>
-              <p>
-                {item.quantity} X ${item.price}
-              </p>
-            </div>
-            <div className="text-2xl cursor-pointer">
-              <TiDelete />
+            <div className="flex gap-x-4">
+              <img src={item.image} alt="" className="w-[5rem] rounded-l" />
+              <div className="flex flex-col">
+                <p className="">{item.title} shoes</p>
+                <p>${item.price}</p>
+                <div className="flex gap-x-2 w-fit">
+                  <button
+                    onClick={() => handleUpdateItemQuantity(item.id, -1)}
+                    className="border-2 border-slate-200 px-1"
+                  >
+                    -
+                  </button>
+                  <p className="border-y-2 border-slate-200">{item.quantity}</p>
+                  <button
+                    onClick={() => handleUpdateItemQuantity(item.id, +1)}
+                    className="border-2 border-slate-200 px-1"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <div>
+                <TiDelete
+                  className="text-2xl cursor-pointer"
+                  onClick={() => handleRemoveItemFromCart(item.id)}
+                />
+              </div>
             </div>
           </div>
         ))
@@ -39,7 +62,7 @@ export default function CartMenu({ handleCloseCartMenu, showCartMenu }) {
 
       <div className="flex justify-between w-full">
         <p>Subtotal:</p>
-        <p>$0.00</p>
+        <p>${subTotal}</p>
       </div>
     </div>
   );

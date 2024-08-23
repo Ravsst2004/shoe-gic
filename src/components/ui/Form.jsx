@@ -1,28 +1,37 @@
 import React, { useContext, useState } from "react";
 import Select from "./Select";
 import Button from "./Button";
+import { CartContext } from "../../store/cartContext";
 
-export default function Form({ handleAddItemToCart }) {
+export default function Form({ productId }) {
+  const { handleAddItemToCart, handleUpdateItemQuantity } =
+    useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
 
-  const incrementQuantity = () => setQuantity(quantity + 1);
-  const decrementQuantity = () => setQuantity(Math.max(quantity - 1, 1));
+  const incrementQuantity = () => setQuantity((prev) => prev + 1);
+  const decrementQuantity = () => setQuantity((prev) => Math.max(prev - 1, 1));
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleAddItemToCart({ quantity: quantity });
+    handleAddItemToCart(productId);
+    handleUpdateItemQuantity(productId, quantity - 1);
   };
 
   const incrementDecrementButtonCard = (
     <div className="flex border-2 w-fit border-slate-200 px-1">
-      <button onClick={decrementQuantity}>-</button>
+      <button type="button" onClick={decrementQuantity}>
+        -
+      </button>
       <input
         type="text"
+        inputMode="numeric"
         value={quantity}
-        onChange={() => setQuantity(Number(e.target.value))}
+        onChange={(e) => setQuantity(Number(e.target.value))}
         className="w-10 text-center"
       />
-      <button onClick={incrementQuantity}>+</button>
+      <button type="button" onClick={incrementQuantity}>
+        +
+      </button>
     </div>
   );
 
@@ -44,7 +53,7 @@ export default function Form({ handleAddItemToCart }) {
           <option value="blue">blue</option>
         </Select>
 
-        <div className="flex gap-x-6 text-sm ">
+        <div className="flex gap-x-6 text-sm">
           {incrementDecrementButtonCard}
           <Button
             type="submit"

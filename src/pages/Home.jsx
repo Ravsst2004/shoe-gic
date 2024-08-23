@@ -17,7 +17,6 @@ export default function Home() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [activeSlide, setActiveSlide] = useState(0);
 
-
   const cardContents = [
     {
       title: "Premium Quality",

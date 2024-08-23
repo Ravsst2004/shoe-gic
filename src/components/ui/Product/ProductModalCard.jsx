@@ -3,7 +3,7 @@ import Form from "../Form";
 import { CartContext } from "../../../store/cartContext";
 
 export default function ProductModalCard({ selectedCard, setSelectedCard }) {
-  const { handleAddItemToCart } = useContext(CartContext);
+  console.log(selectedCard);
   return (
     <div className="flex flex-col md:flex-row gap-4 bg-white rounded-lg p-2 lg:p-6">
       <div className="md:w-[40rem]">
@@ -24,19 +24,7 @@ export default function ProductModalCard({ selectedCard, setSelectedCard }) {
         </p>
         <p className="text-sm md:text-base">{selectedCard.description}</p>
 
-        <Form
-          handleAddItemToCart={(item) =>
-            handleAddItemToCart({
-              ...item,
-              id: selectedCard.id,
-              title: selectedCard.title,
-              image: selectedCard.image,
-              price: selectedCard.discountedPrice
-                ? selectedCard.discountedPrice
-                : selectedCard.price,
-            })
-          }
-        />
+        <Form productId={selectedCard.id} />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import {
   CiHeart,
   CiMenuBurger,
@@ -10,12 +10,17 @@ import { IoMenuOutline } from "react-icons/io5";
 import MobileMenu from "./MobileMenu";
 import DesktopMenu from "./DesktopMenu";
 import CartMenu from "./CartMenu";
+import { CartContext } from "../../../store/cartContext";
 
 export default function Navbar() {
   const [showSearch, setShowSearch] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showCart, setShowCart] = useState(false);
-  // const menuRef = useRef(null);
+  const { items } = useContext(CartContext);
+
+  const totalItemInCart = items.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
 
   const handleShowSearch = () => {
     showSearch ? setShowSearch(false) : setShowSearch(true);
@@ -61,10 +66,16 @@ export default function Navbar() {
           <div className="flex justify-center items-center gap-x-3 text-2xl">
             <CiSearch onClick={handleShowSearch} className="cursor-pointer" />
             <CiHeart />
-            <CiShoppingCart
-              className="cursor-pointer"
-              onClick={handleShowCart}
-            />
+            <div onClick={handleShowCart} className="relative cursor-pointer">
+              {totalItemInCart > 0 && (
+                <div className="t-0 absolute left-3">
+                  <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-2 text-xs text-white">
+                    {totalItemInCart}
+                  </p>
+                </div>
+              )}
+              <CiShoppingCart />
+            </div>
             <IoMenuOutline
               className="cursor-pointer"
               onClick={handleShowMobileMenu}

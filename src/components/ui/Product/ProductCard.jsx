@@ -4,6 +4,7 @@ import {
   FaCartShopping,
   FaHeart,
 } from "react-icons/fa6";
+import { CartContext } from "../../../store/cartContext";
 
 export default function ProductCard({
   shoe,
@@ -11,6 +12,8 @@ export default function ProductCard({
   discountedPrice,
   discount = false,
 }) {
+  const { handleAddItemToCart } = useContext(CartContext);
+
   return (
     <div className="w-full relative">
       {discount && (
@@ -23,12 +26,16 @@ export default function ProductCard({
         <div className="cursor-pointer bg-slate-100 bg-opacity-15 border-2 rounded p-2 hover:bg-red-600 transition-colors ease-in">
           <FaHeart />
         </div>
-        <div className="cursor-pointer bg-slate-100 bg-opacity-15 border-2 rounded p-2 hover:bg-red-600 transition-colors ease-in">
+        <div
+          onClick={() => handleAddItemToCart(shoe.id)}
+          className="cursor-pointer bg-slate-100 bg-opacity-15 border-2 rounded p-2 hover:bg-red-600 transition-colors ease-in"
+        >
           <FaCartShopping />
         </div>
         <div
           onClick={() =>
             handleOpenModal({
+              id: shoe.id,
               title: shoe.title,
               description: shoe.description,
               image: shoe.image,
