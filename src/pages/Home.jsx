@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Layouts from "../components/layouts/Layouts";
 import premiumQualitySvg from "../assets/svg/premium-quality.svg";
 import exceptionalDesignsSvg from "../assets/svg/exceptional-designs.svg";
@@ -8,6 +8,8 @@ import OnSales from "../components/ui/HomeSection/OnSales";
 import Modal from "../components/ui/Modal";
 import ProductModalCard from "../components/ui/Product/ProductModalCard";
 import ProductCard from "../components/ui/Product/ProductCard";
+import CartContextProvider, { CartContext } from "../store/cartContext";
+import products from "../../data/products.json";
 
 export default function Home() {
   const [onHover, setOnHover] = useState(false);
@@ -51,63 +53,7 @@ export default function Home() {
     "https://images.unsplash.com/photo-1619521440807-ba72afd67b12?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHx8",
   ];
 
-  const featuredShoes = [
-    {
-      title: "Casual",
-      image: "../../public/image/featuredItems/featured (1).jpg",
-      price: 50,
-      description:
-        "Perfect for everyday wear, these casual shoes blend style and comfort.",
-    },
-    {
-      title: "Party van",
-      image: "../../public/image/featuredItems/featured (2).jpg",
-      price: 40,
-      description:
-        "Stand out at any event with these bold and vibrant party shoes.",
-    },
-    {
-      title: "Goliath",
-      image: "../../public/image/featuredItems/featured (3).jpg",
-      price: 60,
-      description:
-        "Unleash your strength with Goliath – powerful shoes built for endurance.",
-    },
-    {
-      title: "Training",
-      image: "../../public/image/featuredItems/featured (4).jpg",
-      price: 55,
-      description:
-        "Designed for athletes, these training shoes provide support during workouts.",
-    },
-    {
-      title: "Schoolboy",
-      image: "../../public/image/featuredItems/featured (5).jpg",
-      price: 75,
-      description: "Classic and stylish, perfect for school or casual outings.",
-    },
-    {
-      title: "Casual zip",
-      image: "../../public/image/featuredItems/featured (6).jpg",
-      price: 65,
-      description:
-        "Easy to slip on and off, these casual shoes offer convenience with style.",
-    },
-    {
-      title: "Mamen",
-      image: "../../public/image/featuredItems/featured (7).jpg",
-      price: 85,
-      description:
-        "Luxury meets comfort with Mamen, perfect for those who demand the best.",
-    },
-    {
-      title: "Just gimme my money 🤫",
-      image: "../../public/image/featuredItems/featured (8).jpg",
-      price: 45,
-      description:
-        "Make a statement with these unique shoes that are all about confidence and flair.",
-    },
-  ];
+  const featuredShoes = products.slice(0, 8);
 
   const handleOpenModal = (items) => {
     setShowModal(true);
@@ -127,71 +73,50 @@ export default function Home() {
   }, [showModal]);
 
   return (
-    <Layouts>
-      {" "}
-      <OnSales />
-      <section className="w-full">
-        <div className="flex flex-col items-center justify-center mt-16 px-4 sm:px-10 md:gap-y-2">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tighter text-center md:px-2 font-urbanist">
-            Discover{" "}
-            <span className="text-red-600 underline italic">Magic</span> in
-            Every Shoes
-          </h1>
-          <div className="relative">
-            <p className="relative z-10 text-sm text-center md:text-lg xl:text-xl xl:px-72">
-              With our curated selection of high-quality shoes, we invite you to
-              experience the extraordinary.
-            </p>
+    <CartContextProvider>
+      <Layouts>
+        <OnSales />
+        <section className="w-full">
+          <div className="flex flex-col items-center justify-center mt-20 px-4 sm:px-10 md:gap-y-2">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-center md:px-2 font-urbanist">
+              Discover{" "}
+              <span className="text-red-600 underline italic">Magic</span> in
+              Every Shoes
+            </h1>
+            <div className="relative">
+              <p className="relative z-10 text-sm text-center md:text-lg xl:text-xl xl:px-72">
+                With our curated selection of high-quality shoes, we invite you
+                to experience the extraordinary.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 px-6 lg:px-10 xl:px-20 2xl:px-60">
+              {featuredShoes.map((shoe, index) => {
+                const discountedPrice = shoe.price * (1 - 0.5);
+
+                return (
+                  <ProductCard
+                    key={index}
+                    shoe={shoe}
+                    discountedPrice={discountedPrice}
+                    handleOpenModal={handleOpenModal}
+                    discount
+                  />
+                );
+              })}
+
+              <Modal onClose={() => setShowModal(false)} show={showModal}>
+                {selectedCard && (
+                  <ProductModalCard
+                    selectedCard={selectedCard}
+                    setSelectedCard={setSelectedCard}
+                  />
+                )}
+              </Modal>
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 px-5 lg:px-10">
-            {featuredShoes.map((shoe, index) => {
-              const discountedPrice = shoe.price * (1 - 0.5);
-
-              return (
-                <ProductCard
-                  key={index}
-                  shoe={shoe}
-                  discountedPrice={discountedPrice}
-                  handleOpenModal={handleOpenModal}
-                />
-              );
-            })}
-
-            <Modal onClose={() => setShowModal(false)} show={showModal}>
-              {selectedCard && (
-                <ProductModalCard
-                  selectedCard={selectedCard}
-                  setSelectedCard={setSelectedCard}
-                />
-              )}
-            </Modal>
-          </div>
-
-          {/* <Link
-            to={"/products"}
-            className="p-4 text-xl font-semibold text-gray-200 cursor-pointer group bg-slate-900 rounded-xl "
-            onMouseEnter={() => setOnHover(true)}
-            onMouseLeave={() => setOnHover(false)}
-          >
-            Find Your{" "}
-            <span
-              className={`${
-                onHover ? "text-purple-500" : ""
-              } transition-all ease-in-out duration-200`}
-            >
-              {onHover ? "Magic" : "Style"}
-            </span>{" "}
-            <span
-              aria-hidden="true"
-              className="inline-block transition-transform duration-200 ease-in-out translate-x-0 group-hover:translate-x-1"
-            >
-              →
-            </span>
-          </Link> */}
-        </div>
-      </section>
-      {/* <UniqueLoved
+        </section>
+        {/* <UniqueLoved
         showModal={showModal}
         setShowModal={setShowModal}
         cardContents={cardContents}
@@ -201,6 +126,7 @@ export default function Home() {
         activeSlide={activeSlide}
         setActiveSlide={setActiveSlide}
       /> */}
-    </Layouts>
+      </Layouts>
+    </CartContextProvider>
   );
 }
