@@ -106,16 +106,22 @@ export default function Navbar() {
 
       {/* Navbar Desktop */}
       <nav className="hidden lg:block">
-        <div className="relative flex flex-col z-10 pt-4 px-14 xl:px-40">
+        <div className="relative flex flex-col z-10 pt-4 max-w-7xl mx-auto">
           <div className="flex justify-between items-center">
             <h1 className="text-3xl text-slate-950 font-bold">ShoeGic.</h1>
             <div className="flex items-center gap-x-2">
               <InputSearch />
               <CiHeart className="text-3xl" />
-              <CiShoppingCart
-                className="text-3xl cursor-pointer"
-                onClick={handleShowCart}
-              />
+              <div onClick={handleShowCart} className="relative cursor-pointer">
+                {totalItemInCart > 0 && (
+                  <div className="t-0 absolute left-4">
+                    <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-2 text-xs text-white">
+                      {totalItemInCart}
+                    </p>
+                  </div>
+                )}
+                <CiShoppingCart className="text-3xl" />
+              </div>
             </div>
           </div>
 

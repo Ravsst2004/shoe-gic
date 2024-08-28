@@ -13,6 +13,7 @@ export default function ProductCard({
   discount = false,
 }) {
   const { handleAddItemToCart } = useContext(CartContext);
+  // console.log(shoe);
 
   return (
     <div className="w-full relative">

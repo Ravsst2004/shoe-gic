@@ -6,7 +6,6 @@ import { TiDelete } from "react-icons/ti";
 export default function CartMenu({ handleCloseCartMenu, showCartMenu }) {
   const { items, handleUpdateItemQuantity, handleRemoveItemFromCart } =
     useContext(CartContext);
-  console.log(`Items: `, items);
 
   const subTotal = items.reduce((total, item) => {
     return total + item.price * item.quantity;

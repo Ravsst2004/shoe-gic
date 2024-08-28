@@ -10,6 +10,14 @@ import ProductModalCard from "../components/ui/Product/ProductModalCard";
 import ProductCard from "../components/ui/Product/ProductCard";
 import CartContextProvider, { CartContext } from "../store/cartContext";
 import products from "../../data/products.json";
+import UniqueLoved from "../components/ui/HomeSection/UniqueLoved";
+import { TbTruckDelivery } from "react-icons/tb";
+import {
+  RiCustomerService2Line,
+  RiDiscountPercentLine,
+  RiSecurePaymentFill,
+} from "react-icons/ri";
+import ClientFeedback from "../components/ui/HomeSection/ClientFeedback";
 
 export default function Home() {
   const [onHover, setOnHover] = useState(false);
@@ -76,7 +84,8 @@ export default function Home() {
     <CartContextProvider>
       <Layouts>
         <OnSales />
-        <section className="w-full">
+
+        <section className="max-w-7xl mx-auto">
           <div className="flex flex-col items-center justify-center mt-20 px-4 sm:px-10 md:gap-y-2">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-center md:px-2 font-urbanist">
               Discover{" "}
@@ -90,7 +99,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 px-6 lg:px-10 xl:px-20 2xl:px-60">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 ">
               {featuredShoes.map((shoe, index) => {
                 const discountedPrice = shoe.price * (1 - 0.5);
 
@@ -116,16 +125,45 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* <section className="max-w-7xl mx-auto my-20 px-4 sm:px-10">
+          <div
+            className="rounded bg-opacity-30 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 font-semibold py-6 px-10 gap-y-4 text-4xl"
+            style={{
+              backgroundImage: `url(https://images.unsplash.com/photo-1579492450119-80542d516179?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`,
+            }}
+          >
+            <div className="flex items-center lg:justify-center gap-x-2 ">
+              <TbTruckDelivery />
+              <p className="text-lg">Free Shipping</p>
+            </div>
+            <div className="flex items-center lg:justify-center gap-x-2">
+              <RiSecurePaymentFill />
+              <p className="text-lg">Secure Payment</p>
+            </div>
+            <div className="flex items-center lg:justify-center gap-x-2">
+              <RiDiscountPercentLine />
+              <p className="text-lg">Discount Up To 50%</p>
+            </div>
+            <div className="flex items-center lg:justify-center gap-x-2">
+              <RiCustomerService2Line />
+              <p className="text-lg">24/7 Support</p>
+            </div>
+          </div>
+        </section> */}
+
+        <ClientFeedback />
+
         {/* <UniqueLoved
-        showModal={showModal}
-        setShowModal={setShowModal}
-        cardContents={cardContents}
-        bestSellersShoes={bestSellersShoes}
-        selectedCard={selectedCard}
-        handleOpenModal={handleOpenModal}
-        activeSlide={activeSlide}
-        setActiveSlide={setActiveSlide}
-      /> */}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          cardContents={cardContents}
+          bestSellersShoes={bestSellersShoes}
+          selectedCard={selectedCard}
+          handleOpenModal={handleOpenModal}
+          activeSlide={activeSlide}
+          setActiveSlide={setActiveSlide}
+        /> */}
       </Layouts>
     </CartContextProvider>
   );

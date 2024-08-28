@@ -24,7 +24,7 @@ export default function OnSales() {
     <section className="">
       <div className="flex flex-col gap-y-2">
         <div
-          className="relative min-h-96 md:min-h-[30rem] lg:min-h-[40rem] bg-cover bg-no-repeat bg-center flex items-center justify-center lg:justify-start lg:px-36"
+          className="relative min-h-96 lg:min-h-[40rem] bg-cover bg-no-repeat bg-center flex items-center justify-center lg:justify-start lg:px-36"
           style={{
             backgroundImage: `url('${exclusiveNewShoes}')`,
           }}
@@ -55,7 +55,7 @@ export default function OnSales() {
               }}
             >
               <div className="absolute inset-0 rounded-lg bg-black opacity-30"></div>
-              <div className="flex flex-col gap-y-3 text-center absolute text-slate-100 group-hover:border group-hover:bg-stone-600 group-hover:bg-opacity-50 p-2 transition-all ease-linear duration-200">
+              <div className="flex flex-col gap-y-3 text-center absolute text-slate-100 border bg-stone-600 bg-opacity-40 p-2 transition-all ease-linear duration-200">
                 <h4 className="uppercase relative md:text-lg">Up to 50% off</h4>
                 <h1 className="uppercase font-semibold text-3xl">
                   {product.title}

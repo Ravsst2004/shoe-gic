@@ -19,8 +19,18 @@ export default function ProductModalCard({ selectedCard, setSelectedCard }) {
         </h1>
         <p className="md:text-lg font-semibold">
           {" "}
-          <span className="line-through pr-2">${selectedCard.price}</span>
-          <span className="text-red-600">${selectedCard.discountedPrice}</span>
+          <span
+            className={`${
+              selectedCard.discountedPrice ? "line-through" : ""
+            } pr-2`}
+          >
+            ${selectedCard.price}
+          </span>
+          {selectedCard.discountedPrice && (
+            <span className="text-red-600">
+              ${selectedCard.discountedPrice}
+            </span>
+          )}
         </p>
         <p className="text-sm md:text-base">{selectedCard.description}</p>
 
