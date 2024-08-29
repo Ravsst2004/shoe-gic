@@ -26,16 +26,7 @@ function PrevArrow({ onClick }) {
   );
 }
 
-export default function UniqueLoved({
-  showModal,
-  setShowModal,
-  activeSlide,
-  setActiveSlide,
-  cardContents,
-  bestSellersShoes,
-  selectedCard,
-  handleOpenModal,
-}) {
+export default function UniqueLoved({ setActiveSlide, bestSellersShoes }) {
   const settings = {
     dots: false,
     infinite: true,
@@ -59,67 +50,14 @@ export default function UniqueLoved({
   };
 
   return (
-    <section className="w-full md:gap-y-5 bg-slate-900 text-slate-200 px-6 md:px-14 lg:px-24 xl:px-44 my-28 md:my-32 py-16">
-      <div>
-        <div className="flex flex-col gap-y-6 w-full">
-          <div className="text-center lg:text-start">
-            <h1 className="text-3xl font-semibold md:text-4xl mb-2">
-              The <span className="text-purple-600 italic">Unique</span> Edge
-            </h1>
-            <p className="text-lg md:text-xl">
-              Explore what makes our shoes unique and discover what sets them
-              apart.
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center justify-center w-full lg:flex-row">
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 w-fit">
-              {cardContents.map(
-                (content, index) =>
-                  content !== null && (
-                    <Card
-                      key={index}
-                      title={content.title}
-                      description={content.description.slice(0, 50) + " ...."}
-                      image={content.image}
-                      onClick={() =>
-                        handleOpenModal(
-                          content.title,
-                          content.description,
-                          content.image
-                        )
-                      }
-                      className="group lg:w-full hover:bg-slate-800 transition-colors ease-in duration-200"
-                      titleClassName={`text-xl font-semibold`}
-                      imageClassName="object-contain h-40 md:h-52 "
-                    />
-                  )
-              )}
-            </div>
-
-            <Modal show={showModal} onClose={() => setShowModal(false)}>
-              {selectedCard && (
-                <div className="flex flex-col gap-y-2">
-                  <h1 className="text-xl font-bold text-purple-400">
-                    {selectedCard.title}
-                  </h1>
-                  <p className="font-normal text-justify">
-                    {selectedCard.description}
-                  </p>
-                  <hr />
-                </div>
-              )}
-            </Modal>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-col justify-center gap-y-6 py-20 overflow-hidden">
-        <div className="text-center lg:text-end ">
-          <h1 className="text-3xl font-semibold md:text-4xl mb-2">
-            Highly <span className="text-purple-600 italic">Loved</span> Picks
+    <section className="w-full md:gap-y-5 bg-gray-200/80 text-slate-200 my-28 md:my-32 py-16">
+      <div className="flex flex-col justify-center gap-y-6 overflow-hidden max-w-7xl mx-auto px-4 md:px-10">
+        <div className="text-center text-slate-950 lg:text-end ">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-center md:px-2 font-urbanist">
+            Highly <span className="text-red-600 underline italic">Loved</span>{" "}
+            Picks
           </h1>
-          <p className="text-lg md:text-xl">
+          <p className="text-sm text-center md:text-lg xl:text-xl xl:px-72">
             Discover our top-selling items and see what makes them customer
             favorites
           </p>

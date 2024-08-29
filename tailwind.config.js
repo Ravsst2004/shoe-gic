@@ -8,7 +8,16 @@ export default {
         urbanist: ["Urbanist", "sans-serif"],
         lora: ["Lora", "serif"],
       },
+      keyframes: {
+        infiniteScroll: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+      },
+      animation: {
+        "infinite-scroll": "infiniteScroll 10s linear",
+      },
     },
+    plugins: [],
   },
-  plugins: [],
 };

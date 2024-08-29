@@ -3,6 +3,7 @@ import sportShoes from "../../../../public/image/onSalesProducts/Sport Shoes.jpg
 import newArrivals from "../../../../public/image/onSalesProducts/New Arrivals.jpg";
 import bestSellers from "../../../../public/image/onSalesProducts/Best Sellers.jpg";
 import exclusiveNewShoes from "../../../../public/image/onSalesProducts/Exclusive New Shoes.jpg";
+import { Link } from "react-router-dom";
 
 export default function OnSales() {
   const onSalesProductsByCategories = [
@@ -39,9 +40,12 @@ export default function OnSales() {
               <br />
               <span className="font-semibold lg:text-8xl">New Shoes</span>
             </h1>
-            <Button className="border-slate-200 lg:text-2xl lg:w-64 font-semibold hover:bg-red-600 hover:border-red-600 transition-colors ease-linear duration-200">
+            <Link
+              to="/shop"
+              className="bg-transparent text-center border-2 cursor-pointer p-2 border-slate-200 lg:text-2xl lg:w-64 font-semibold hover:bg-red-600 hover:border-red-600 transition-colors ease-linear duration-200"
+            >
               Shop Now
-            </Button>
+            </Link>
           </div>
         </div>
 

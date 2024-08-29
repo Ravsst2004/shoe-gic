@@ -65,7 +65,6 @@ export default function Navbar() {
           <h1 className="text-3xl text-slate-950 font-bold">ShoeGic.</h1>
           <div className="flex justify-center items-center gap-x-3 text-2xl">
             <CiSearch onClick={handleShowSearch} className="cursor-pointer" />
-            <CiHeart />
             <div onClick={handleShowCart} className="relative cursor-pointer">
               {totalItemInCart > 0 && (
                 <div className="t-0 absolute left-3">
@@ -111,7 +110,6 @@ export default function Navbar() {
             <h1 className="text-3xl text-slate-950 font-bold">ShoeGic.</h1>
             <div className="flex items-center gap-x-2">
               <InputSearch />
-              <CiHeart className="text-3xl" />
               <div onClick={handleShowCart} className="relative cursor-pointer">
                 {totalItemInCart > 0 && (
                   <div className="t-0 absolute left-4">

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Button from "../../ui/Button";
 import { CartContext } from "../../../store/cartContext";
 import { TiDelete } from "react-icons/ti";
+import { Link } from "react-router-dom";
 
 export default function CartMenu({ handleCloseCartMenu, showCartMenu }) {
   const { items, handleUpdateItemQuantity, handleRemoveItemFromCart } =
@@ -89,9 +90,12 @@ export default function CartMenu({ handleCloseCartMenu, showCartMenu }) {
         <div className="mt-6 mx-6">
           {ItemsBox}
           <div className="flex flex-col mt-4 gap-y-2 text-white">
-            <Button className="bg-slate-950 hover:bg-red-600 transition-colors ease-linear duration-200 font-medium">
+            <Link
+              to="/shop-cart"
+              className="border-2 cursor-pointer p-2 text-center bg-slate-950 hover:bg-red-600 transition-colors ease-linear duration-200 font-medium"
+            >
               VIEW CART
-            </Button>
+            </Link>
             <Button className="bg-slate-950 hover:bg-red-600 transition-colors ease-linear duration-200 font-medium">
               CHECKOUT
             </Button>

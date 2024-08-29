@@ -11,12 +11,6 @@ import ProductCard from "../components/ui/Product/ProductCard";
 import CartContextProvider, { CartContext } from "../store/cartContext";
 import products from "../../data/products.json";
 import UniqueLoved from "../components/ui/HomeSection/UniqueLoved";
-import { TbTruckDelivery } from "react-icons/tb";
-import {
-  RiCustomerService2Line,
-  RiDiscountPercentLine,
-  RiSecurePaymentFill,
-} from "react-icons/ri";
 import ClientFeedback from "../components/ui/HomeSection/ClientFeedback";
 
 export default function Home() {
@@ -53,12 +47,12 @@ export default function Home() {
   ];
 
   const bestSellersShoes = [
-    "https://images.unsplash.com/photo-1512374382149-233c42b6a83b?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1608229751021-ed4bd8677753?q=80&w=1959&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1620138546344-7b2c38516edf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8",
-    "https://images.unsplash.com/photo-1518002171953-a080ee817e1f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1619521440807-ba72afd67b12?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHx8",
+    "/public/image/products/product (14).jpg",
+    "/public/image/products/product (12).jpg",
+    "/public/image/products/product (9).jpg",
+    "/public/image/products/product (15).jpg",
+    "/public/image/products/product (2).jpg",
+    "/public/image/products/product (5).jpg",
   ];
 
   const featuredShoes = products.slice(0, 8);
@@ -81,52 +75,48 @@ export default function Home() {
   }, [showModal]);
 
   return (
-    <CartContextProvider>
-      <Layouts>
-        <OnSales />
+    <Layouts>
+      <OnSales />
 
-        <section className="max-w-7xl mx-auto">
-          <div className="flex flex-col items-center justify-center mt-20 px-4 sm:px-10 md:gap-y-2">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-center md:px-2 font-urbanist">
-              Discover{" "}
-              <span className="text-red-600 underline italic">Magic</span> in
-              Every Shoes
-            </h1>
-            <div className="relative">
-              <p className="relative z-10 text-sm text-center md:text-lg xl:text-xl xl:px-72">
-                With our curated selection of high-quality shoes, we invite you
-                to experience the extraordinary.
-              </p>
-            </div>
+      <section className="max-w-7xl mx-auto">
+        <div className="flex flex-col items-center justify-center mt-20 px-4 sm:px-10 md:gap-y-2">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-center md:px-2 font-urbanist">
+            Discover{" "}
+            <span className="text-red-600 underline italic">Magic</span> in
+            Every Shoes
+          </h1>
+          <p className="relative z-10 text-sm text-center md:text-lg xl:text-xl xl:px-72">
+            With our curated selection of high-quality shoes, we invite you to
+            experience the extraordinary.
+          </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 ">
-              {featuredShoes.map((shoe, index) => {
-                const discountedPrice = shoe.price * (1 - 0.5);
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 ">
+            {featuredShoes.map((shoe, index) => {
+              const discountedPrice = shoe.price * (1 - 0.5);
 
-                return (
-                  <ProductCard
-                    key={index}
-                    shoe={shoe}
-                    discountedPrice={discountedPrice}
-                    handleOpenModal={handleOpenModal}
-                    discount
-                  />
-                );
-              })}
+              return (
+                <ProductCard
+                  key={index}
+                  shoe={shoe}
+                  discountedPrice={discountedPrice}
+                  handleOpenModal={handleOpenModal}
+                />
+              );
+            })}
 
-              <Modal onClose={() => setShowModal(false)} show={showModal}>
-                {selectedCard && (
-                  <ProductModalCard
-                    selectedCard={selectedCard}
-                    setSelectedCard={setSelectedCard}
-                  />
-                )}
-              </Modal>
-            </div>
+            <Modal onClose={() => setShowModal(false)} show={showModal}>
+              {selectedCard && (
+                <ProductModalCard
+                  selectedCard={selectedCard}
+                  setSelectedCard={setSelectedCard}
+                />
+              )}
+            </Modal>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* <section className="max-w-7xl mx-auto my-20 px-4 sm:px-10">
+      {/* <section className="max-w-7xl mx-auto my-20 px-4 sm:px-10">
           <div
             className="rounded bg-opacity-30 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 font-semibold py-6 px-10 gap-y-4 text-4xl"
             style={{
@@ -152,19 +142,72 @@ export default function Home() {
           </div>
         </section> */}
 
-        <ClientFeedback />
+      {/* <section className="flex flex-col md:flex-row my-24 justify-center md:justify-between items-center bg-gray-400/10 h-[30rem]">
+          <div className="text-center md:text-start p-10 md:pl-44">
+            <h3 className="text-red-600 text-xl md:text-3xl">Saving 50%</h3>
+            <h1 className="text-3xl font-bold md:text-5xl">All Online Store</h1>
+            <p className="text-sm md:text-base mb-6">
+              OFFER AVAILABLE ALL SHOES
+            </p>
+            <a
+              href=""
+              className="lg:text-2xl lg:w-64 text-slate-100 py-2 px-6 bg-red-600 transition-colors ease-linear duration-200"
+            >
+              Find your online store
+            </a>
+          </div>
 
-        {/* <UniqueLoved
-          showModal={showModal}
-          setShowModal={setShowModal}
-          cardContents={cardContents}
-          bestSellersShoes={bestSellersShoes}
-          selectedCard={selectedCard}
-          handleOpenModal={handleOpenModal}
-          activeSlide={activeSlide}
-          setActiveSlide={setActiveSlide}
-        /> */}
-      </Layouts>
-    </CartContextProvider>
+          <div className="relative flex justify-center">
+            <img
+              src={products[0].image}
+              alt=""
+              className="md:hidden w-full sm:w-96 md:w-full object-cover "
+            />
+            <img
+              src={products[0].image}
+              alt=""
+              className="hidden md:block w-full sm:w-96 md:w-[30rem] object-cover "
+              style={{
+                clipPath: "polygon(30% 0, 100% 0%, 100% 100%, 0% 100%)",
+              }}
+            />
+          </div>
+        </section> */}
+
+      {/* <section
+          className="object-cover bg-cover bg-center bg-no-repeat md:flex-row my-24 h-[30rem]"
+          style={{
+            backgroundImage: `url('/public/image/products/product (10).jpg')`,
+          }}
+        >
+          {" "}
+          <div className="flex flex-col justify-center items-center text-center md:text-start p-10 md:pl-44">
+            <h3 className="text-red-600 text-xl font-medium md:text-3xl">
+              Saving 50%
+            </h3>
+            <h1 className="text-white text-3xl font-bold md:text-5xl">
+              All Online Store
+            </h1>
+            <p className="text-white text-sm md:text-base mb-6">
+              OFFER AVAILABLE ALL SHOES
+            </p>
+            <a
+              href=""
+              className="lg:text-2xl lg:w-64 text-slate-100 py-2 px-6 bg-red-600 transition-colors ease-linear duration-200"
+            >
+              Find your online store
+            </a>
+
+ 
+          </div>
+        </section> */}
+
+      <UniqueLoved
+        bestSellersShoes={bestSellersShoes}
+        setActiveSlide={setActiveSlide}
+      />
+
+      <ClientFeedback />
+    </Layouts>
   );
 }
