@@ -1,4 +1,7 @@
 import React, { useEffect } from "react";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaUser } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 export default function MobileMenu({
@@ -43,9 +46,27 @@ export default function MobileMenu({
         >
           Menu <span>{"<"}</span>
         </div>
+        <Link to="">
+          <div className="flex items-center gap-2 p-4 border-b border-opacity-20 border-slate-600/70 text-white text-sm cursor-pointer">
+            <FaPhoneAlt className="text-red-600" />
+            +84 123 456 789
+          </div>
+        </Link>
+        <Link to="">
+          <div className="flex items-center gap-2 p-4 border-b border-opacity-20 border-slate-600/70 text-white text-sm cursor-pointer">
+            <MdEmail className="text-red-600" />
+            shoegic@gmail.com
+          </div>
+        </Link>
+        <Link to="/login">
+          <div className="flex items-center gap-2 p-4 border-b border-opacity-20 border-slate-600/70 text-white text-sm cursor-pointer">
+            <FaUser className="text-red-600" />
+            account
+          </div>
+        </Link>
         {linkMenu.map((link, index) => (
           <Link to={link.link} key={index}>
-            <div className="p-4 border-b-[1px] border-opacity-55 text-white text-sm cursor-pointer">
+            <div className="p-4 border-b border-opacity-20 border-slate-600/70 text-white text-sm cursor-pointer">
               {link.title}
             </div>
           </Link>

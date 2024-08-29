@@ -4,9 +4,10 @@ import "./index.css";
 import Home from "./pages/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Shop from "./pages/Shop";
-import About from "./pages/About";
 import ShopCart from "./pages/ShopCart";
 import CartContextProvider from "./store/cartContext";
+import Login from "./pages/Auth/Login";
+import Registration from "./pages/Auth/Registration";
 
 const router = createBrowserRouter([
   {
@@ -18,13 +19,17 @@ const router = createBrowserRouter([
     element: <Shop />,
   },
   {
-    path: "/about",
-    element: <About />,
-  },
-  {
     path: "/shop-cart",
     element: <ShopCart />,
   },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/registration",
+    element: <Registration />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

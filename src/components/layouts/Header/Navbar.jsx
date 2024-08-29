@@ -1,16 +1,14 @@
 import React, { useContext, useRef, useState } from "react";
-import {
-  CiHeart,
-  CiMenuBurger,
-  CiSearch,
-  CiShoppingCart,
-} from "react-icons/ci";
+import { CiSearch, CiShoppingCart } from "react-icons/ci";
 import InputSearch from "../../ui/InputSearch";
 import { IoMenuOutline } from "react-icons/io5";
 import MobileMenu from "./MobileMenu";
 import DesktopMenu from "./DesktopMenu";
 import CartMenu from "./CartMenu";
 import { CartContext } from "../../../store/cartContext";
+import { Link } from "react-router-dom";
+import { FaPhoneAlt, FaUser } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 export default function Navbar() {
   const [showSearch, setShowSearch] = useState(false);
@@ -38,10 +36,6 @@ export default function Navbar() {
     {
       title: "Home",
       link: "/",
-    },
-    {
-      title: "About",
-      link: "/about",
     },
     {
       title: "Shop",
@@ -105,6 +99,32 @@ export default function Navbar() {
 
       {/* Navbar Desktop */}
       <nav className="hidden lg:block">
+        <div className="bg-slate-500 bg-opacity-10">
+          <div className="max-w-7xl mx-auto flex justify-between items-center py-3">
+            <h1 className="">Free shipping for orders over $100</h1>
+
+            <div className="flex text-center gap-x-4">
+              <Link to="">
+                <div className="flex items-center gap-1 hover:text-red-600 text-sm cursor-pointer">
+                  <FaPhoneAlt className="text-red-600" />
+                  +84 123 456 789
+                </div>
+              </Link>
+              <Link to="">
+                <div className="flex items-center gap-1 hover:text-red-600 text-sm cursor-pointer">
+                  <MdEmail className="text-red-600" />
+                  shoegic@gmail.com
+                </div>
+              </Link>
+              <Link to="/login">
+                <div className="flex items-center gap-1 hover:text-red-600 text-sm cursor-pointer">
+                  <FaUser className="text-red-600" />
+                  account
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
         <div className="relative flex flex-col z-10 pt-4 max-w-7xl mx-auto">
           <div className="flex justify-between items-center">
             <h1 className="text-3xl text-slate-950 font-bold">ShoeGic.</h1>

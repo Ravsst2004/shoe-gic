@@ -90,6 +90,9 @@ export default function ShopCart() {
           )}
         </div>
       </div>
+      {items.length === 0 && (
+        <div className="hidden lg:block md:mt-[15.7rem]"></div>
+      )}
     </Layouts>
   );
 }

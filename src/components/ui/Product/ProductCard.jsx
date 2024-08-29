@@ -24,9 +24,6 @@ export default function ProductCard({
       )}
 
       <div className="absolute top-2 right-2 flex flex-col gap-y-4 text-white text-lg ">
-        <div className="cursor-pointer bg-slate-100 bg-opacity-15 border-2 rounded p-2 hover:bg-red-600 transition-colors ease-in">
-          <FaHeart />
-        </div>
         <div
           onClick={() => handleAddItemToCart(shoe.id)}
           className="cursor-pointer bg-slate-100 bg-opacity-15 border-2 rounded p-2 hover:bg-red-600 transition-colors ease-in"

@@ -5,6 +5,8 @@ import ProductCard from "../components/ui/Product/ProductCard";
 import ProductModalCard from "../components/ui/Product/ProductModalCard";
 import Modal from "../components/ui/Modal";
 import { CartContext } from "../store/cartContext";
+import { BsFillGrid3X3GapFill } from "react-icons/bs";
+import { FaList } from "react-icons/fa6";
 
 export default function Shop() {
   const { cartItems } = useContext(CartContext);
@@ -20,7 +22,11 @@ export default function Shop() {
   return (
     <Layouts>
       <section className="max-w-7xl mx-auto px-4 lg:px-0">
-        <div className="border-2 rounded py-2 mt-4">
+        <div className="flex gap-2 flex-col sm:flex-row items-center justify-between px-4 border-2 rounded py-2 mt-4">
+          <div className="flex gap-4">
+            <BsFillGrid3X3GapFill className="text-red-600" />
+            <FaList />
+          </div>
           <div className=" flex justify-center items-center gap-x-2">
             <h1>Sort By:</h1>
             <select className="cursor-pointer">
