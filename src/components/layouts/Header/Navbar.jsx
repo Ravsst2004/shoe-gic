@@ -55,8 +55,10 @@ export default function Navbar() {
     <>
       {/* Navbar Mobile*/}
       <nav className="relative md:px-10 lg:hidden">
-        <div className="relative z-10 flex justify-between items-center p-4 ">
-          <h1 className="text-3xl text-slate-950 font-bold">ShoeGic.</h1>
+        <div className="relative z-10 flex justify-between items-center p-4 border-b-2">
+          <Link to="/" className="text-3xl text-slate-950 font-bold">
+            ShoeGic.
+          </Link>
           <div className="flex justify-center items-center gap-x-3 text-2xl">
             <CiSearch onClick={handleShowSearch} className="cursor-pointer" />
             <div onClick={handleShowCart} className="relative cursor-pointer">
@@ -98,7 +100,7 @@ export default function Navbar() {
       </nav>
 
       {/* Navbar Desktop */}
-      <nav className="hidden lg:block">
+      <nav className="hidden lg:block border-b-2 border-slate-200/30">
         <div className="bg-slate-500 bg-opacity-10">
           <div className="max-w-7xl mx-auto flex justify-between items-center py-3">
             <h1 className="">Free shipping for orders over $100</h1>
@@ -127,7 +129,9 @@ export default function Navbar() {
         </div>
         <div className="relative flex flex-col z-10 pt-4 max-w-7xl mx-auto">
           <div className="flex justify-between items-center">
-            <h1 className="text-3xl text-slate-950 font-bold">ShoeGic.</h1>
+            <Link to="/" className="text-3xl text-slate-950 font-bold">
+              ShoeGic.
+            </Link>
             <div className="flex items-center gap-x-2">
               <InputSearch />
               <div onClick={handleShowCart} className="relative cursor-pointer">

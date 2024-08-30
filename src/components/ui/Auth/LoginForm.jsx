@@ -28,7 +28,7 @@ export default function LoginForm() {
             id="remember_me"
             name="remember"
             type="checkbox"
-            className="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+            className="form-checkbox h-4 w-4 text-red-600 transition duration-150 ease-in-out"
           />
           <label
             htmlFor="remember_me"
@@ -52,7 +52,7 @@ export default function LoginForm() {
         <span className="block w-full rounded-md shadow-sm">
           <Button
             type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out"
+            className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition duration-150 ease-in-out"
           >
             Sign in
           </Button>

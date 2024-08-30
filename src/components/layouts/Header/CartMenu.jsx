@@ -26,25 +26,29 @@ export default function CartMenu({ handleCloseCartMenu, showCartMenu }) {
             key={index}
             className="flex flex-col justify-between w-full shadow rounded gap-x-4 "
           >
-            <div className="flex gap-x-4">
-              <img src={item.image} alt="" className="w-[5rem] rounded-l" />
-              <div className="flex flex-col">
-                <p className="">{item.title} shoes</p>
-                <p>${item.price}</p>
-                <div className="flex gap-x-2 w-fit">
-                  <button
-                    onClick={() => handleUpdateItemQuantity(item.id, -1)}
-                    className="border-2 border-slate-200 px-1"
-                  >
-                    -
-                  </button>
-                  <p className="border-y-2 border-slate-200">{item.quantity}</p>
-                  <button
-                    onClick={() => handleUpdateItemQuantity(item.id, +1)}
-                    className="border-2 border-slate-200 px-1"
-                  >
-                    +
-                  </button>
+            <div className="flex gap-x-4 justify-between">
+              <div className="flex gap-x-3">
+                <img src={item.image} alt="" className="w-[5rem] rounded-l" />
+                <div className="flex flex-col">
+                  <p className="">{item.title} shoes</p>
+                  <p>${item.price}</p>
+                  <div className="flex gap-x-2 w-fit">
+                    <button
+                      onClick={() => handleUpdateItemQuantity(item.id, -1)}
+                      className="border-2 border-slate-200 px-1"
+                    >
+                      -
+                    </button>
+                    <p className="border-y-2 border-slate-200">
+                      {item.quantity}
+                    </p>
+                    <button
+                      onClick={() => handleUpdateItemQuantity(item.id, +1)}
+                      className="border-2 border-slate-200 px-1"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
               </div>
               <div>

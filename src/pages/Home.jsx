@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Layouts from "../components/layouts/Layouts";
 import premiumQualitySvg from "../assets/svg/premium-quality.svg";
 import exceptionalDesignsSvg from "../assets/svg/exceptional-designs.svg";
@@ -8,13 +8,11 @@ import OnSales from "../components/ui/HomeSection/OnSales";
 import Modal from "../components/ui/Modal";
 import ProductModalCard from "../components/ui/Product/ProductModalCard";
 import ProductCard from "../components/ui/Product/ProductCard";
-import CartContextProvider, { CartContext } from "../store/cartContext";
 import products from "../../data/products.json";
 import UniqueLoved from "../components/ui/HomeSection/UniqueLoved";
 import ClientFeedback from "../components/ui/HomeSection/ClientFeedback";
 
 export default function Home() {
-  const [onHover, setOnHover] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const [activeSlide, setActiveSlide] = useState(0);

@@ -1,30 +1,10 @@
 import React from "react";
 import { FaRegUser } from "react-icons/fa6";
 import Slider from "react-slick";
+import reviewsUser from "../../../../data/reviews.json";
 
 export default function ClientFeedback() {
-  const reviews = [
-    {
-      name: "Jane Cooper",
-      feedback:
-        "These shoes are incredibly comfortable and provide excellent support, making them perfect for long walks or hikes.",
-    },
-    {
-      name: "Jenny Wilson",
-      feedback:
-        "I've been wearing these shoes for months now, and they've held up remarkably well. The quality is exceptional!",
-    },
-    {
-      name: "John Doe",
-      feedback:
-        "The stylish design of these shoes caught my eye, and I'm so glad I bought them. They're not only fashionable but also very comfortable to wear.",
-    },
-    {
-      name: "Sarah Smith",
-      feedback:
-        "I was looking for a pair of shoes that could handle both casual and more formal occasions, and these fit the bill perfectly. They're versatile and stylish.",
-    },
-  ];
+  const reviews = reviewsUser.slice(0, 4);
 
   const settings = {
     dots: true,

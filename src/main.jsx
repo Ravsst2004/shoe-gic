@@ -8,8 +8,15 @@ import ShopCart from "./pages/ShopCart";
 import CartContextProvider from "./store/cartContext";
 import Login from "./pages/Auth/Login";
 import Registration from "./pages/Auth/Registration";
+import Contact from "./pages/Contact";
+import NotFound404 from "./pages/NotFound404";
+import Reviews from "./pages/Reviews";
 
 const router = createBrowserRouter([
+  {
+    path: "*",
+    element: <NotFound404 />,
+  },
   {
     path: "/",
     element: <Home />,
@@ -29,7 +36,15 @@ const router = createBrowserRouter([
   {
     path: "/registration",
     element: <Registration />,
-  }
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
+  },
+  {
+    path: "/reviews",
+    element: <Reviews />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

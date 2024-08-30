@@ -24,11 +24,11 @@ export default function Footer() {
   return (
     <>
       {/* Desktop */}
-      <footer className="bg-gray-800 text-center text-surface/75 lg:text-left">
-        <div className="mx-6 py-10 text-center md:text-left text-slate-100">
+      <footer className=" bg-gray-800 text-center text-surface/75 lg:text-left">
+        <div className="max-w-7xl mx-auto py-10 text-center md:text-left text-slate-100">
           <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
-            <div className="flex flex-col gap-y-2 lg:ml-16 ">
-              <h6 className="mb-4 text-3xl flex items-center justify-center font-semibold md:justify-start">
+            <div className="flex flex-col gap-y-2">
+              <h6 className="mb-4 text-4xl flex items-center justify-center font-semibold md:justify-start">
                 ShoeGic.
               </h6>
               <p>PT. Jro Datuk Nusantara Jl. LoL No. 27, Blok B5 IShowSpeed</p>
