@@ -1,4 +1,3 @@
-import React from "react";
 import Layouts from "../../components/layouts/Layouts";
 import LoginForm from "../../components/ui/Auth/LoginForm";
 import { Link } from "react-router-dom";
@@ -14,7 +13,7 @@ export default function Login() {
           <p className="mt-2 text-center text-sm leading-5 text-red-500 max-w">
             <Link
               to="/registration"
-              className="font-medium text-red-500 hover:text-red-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+              className="font-semibold text-red-600 hover:text-red-400 focus:outline-none focus:underline transition ease-in-out duration-150"
             >
               create a new acccount
             </Link>

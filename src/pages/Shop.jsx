@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import products from "../../data/products.json";
 import Layouts from "../components/layouts/Layouts";
 import ProductCard from "../components/ui/Product/ProductCard";
@@ -7,7 +7,6 @@ import Modal from "../components/ui/Modal";
 import { CartContext } from "../store/cartContext";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
 import { FaList } from "react-icons/fa6";
-import Form from "../components/ui/Form";
 import Button from "../components/ui/Button";
 
 export default function Shop() {
@@ -52,8 +51,8 @@ export default function Shop() {
         />
       </div>
       <div className=" flex justify-center items-center gap-x-2">
-        <h1>Sort By:</h1>
-        <select className="cursor-pointer">
+        <label htmlFor="sort">Sort By:</label>
+        <select id="sort" className="cursor-pointer">
           <option value="popularity">Popularity</option>
           <option value="price">Price</option>
         </select>
@@ -78,8 +77,8 @@ export default function Shop() {
         />
       </div>
       <div className=" flex justify-center items-center gap-x-2">
-        <h1>Sort By:</h1>
-        <select className="cursor-pointer">
+        <label htmlFor="sort">Sort By:</label>
+        <select id="sort" className="cursor-pointer">
           <option value="popularity">Popularity</option>
           <option value="price">Price</option>
         </select>

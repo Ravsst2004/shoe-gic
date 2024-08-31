@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import { CiSearch, CiShoppingCart } from "react-icons/ci";
 import InputSearch from "../../ui/InputSearch";
 import { IoMenuOutline } from "react-icons/io5";

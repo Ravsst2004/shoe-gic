@@ -1,4 +1,3 @@
-import React from "react";
 import Input from "./Input";
 import Button from "./Button";
 import { CiSearch } from "react-icons/ci";
@@ -27,6 +26,7 @@ export default function InputSearch({ handleCloseSearch, closeButton }) {
           className={
             "flex items-center text-slate-200 border-red-600 hover:text-slate-800 px-4 10 bg-red-600 rounded-r hover:bg-transparent transition ease-in-out duration-300 font-semibold"
           }
+          aria-label="Cari"
         >
           <CiSearch className="text-xl" />
         </Button>

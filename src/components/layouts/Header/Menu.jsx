@@ -1,5 +1,3 @@
-import { BsCart } from "react-icons/bs";
-
 export default function NavbarMenu() {
   const menuLinks = [
     { name: "Home", path: "/" },
@@ -25,11 +23,6 @@ export default function NavbarMenu() {
           </a>
         </li>
       ))}
-      {/* <li>
-        <button className="block py-2 px-3 rounded md:px-2 md:py-1 text-slate-800 md:text-white text-xl font-bold">
-          <BsCart />
-        </button>
-      </li> */}
     </ul>
   );
 }

@@ -26,9 +26,9 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto py-10 text-center md:text-left text-slate-100">
           <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
             <div className="flex flex-col gap-y-2">
-              <h6 className="mb-4 text-3xl flex items-center justify-center font-semibold md:justify-start">
+              <h1 className="mb-4 text-3xl flex items-center justify-center font-semibold md:justify-start">
                 ShoeGic.
-              </h6>
+              </h1>
               <p className="text-sm">
                 PT. Jro Datuk Nusantara Jl. LoL No. 27, Blok B5 IShowSpeed
               </p>
@@ -40,9 +40,9 @@ export default function Footer() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {sitemap.map((item, index) => (
                 <div key={index}>
-                  <h6 className="mb-4 text-xl flex justify-center uppercase md:justify-start">
+                  <h1 className="mb-4 text-xl flex justify-center uppercase md:justify-start">
                     {item.title}
-                  </h6>
+                  </h1>
                   {item.links.map((link, index) => (
                     <p key={index} className="mb-4 text-sm hover:underline">
                       <a href="#!">{link}</a>

@@ -1,4 +1,3 @@
-import React from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 export default function NavbarButton({ showMenu, handleOpenMenu }) {

@@ -9,8 +9,10 @@ export default function DesktopMenu({ linkMenu }) {
         <Link key={index} to={link.link}>
           <div
             className={`${
-              currentUrl === link.link ? "underline " : ""
-            } p-2 text-slate-100 font-normal cursor-pointer hover:underline underline-offset-4`}
+              currentUrl === link.link
+                ? "underline font-semibold"
+                : "font-normal"
+            } p-2 text-slate-50  cursor-pointer hover:underline underline-offset-4`}
           >
             {link.title}
           </div>

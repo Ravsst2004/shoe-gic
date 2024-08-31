@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Modal({ show = false, children, onClose }) {
   if (!show) {
     return null;

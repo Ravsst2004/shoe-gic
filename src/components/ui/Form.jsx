@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import Select from "./Select";
 import Button from "./Button";
 import { CartContext } from "../../store/cartContext";

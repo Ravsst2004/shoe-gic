@@ -1,8 +1,6 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import Layouts from "../components/layouts/Layouts";
-import CartContextProvider, { CartContext } from "../store/cartContext";
-import countries from "../../data/countries.json";
-import Button from "../components/ui/Button";
+import { CartContext } from "../store/cartContext";
 import { Link } from "react-router-dom";
 
 export default function ShopCart() {

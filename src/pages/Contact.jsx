@@ -1,8 +1,6 @@
-import React from "react";
 import Layouts from "../components/layouts/Layouts";
 import Button from "../components/ui/Button";
 import { IoHomeOutline } from "react-icons/io5";
-import { FaPhoneAlt } from "react-icons/fa";
 import { FiPhoneCall } from "react-icons/fi";
 import { AiOutlineMail } from "react-icons/ai";
 
@@ -17,7 +15,7 @@ export default function Contact() {
             </h1>
 
             <form className="flex flex-col gap-y-6">
-              <div className="flex flex-col lg:flex-row gap-x-6">
+              <div className="flex flex-col lg:flex-row gap-6">
                 <input
                   type="text"
                   placeholder="Name"

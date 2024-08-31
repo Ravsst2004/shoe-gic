@@ -1,4 +1,3 @@
-import Button from "../Button";
 import sportShoes from "../../../../public/image/onSalesProducts/Sport Shoes.jpg";
 import newArrivals from "../../../../public/image/onSalesProducts/New Arrivals.jpg";
 import bestSellers from "../../../../public/image/onSalesProducts/Best Sellers.jpg";
@@ -22,7 +21,7 @@ export default function OnSales() {
   ];
 
   return (
-    <section className="">
+    <>
       <div className="flex flex-col gap-y-2">
         <div
           className="relative min-h-96 lg:min-h-[40rem] bg-cover bg-no-repeat bg-center flex items-center justify-center lg:justify-start lg:px-36"
@@ -32,9 +31,9 @@ export default function OnSales() {
         >
           <div className="absolute inset-0 bg-black opacity-30"></div>
           <div className="flex flex-col gap-y-3 text-center lg:text-start absolute text-slate-100">
-            <h4 className="uppercase relative md:text-xl lg:text-3xl">
+            <h1 className="uppercase relative md:text-xl lg:text-3xl">
               Up to {Math.floor(Math.random() * (50 - 30 + 1)) + 30}% off
-            </h4>
+            </h1>
             <h1 className="uppercase font-light text-3xl md:text-5xl lg:text-7xl">
               Exclusive
               <br />
@@ -60,7 +59,7 @@ export default function OnSales() {
             >
               <div className="absolute inset-0 rounded-lg bg-black opacity-30"></div>
               <div className="flex flex-col gap-y-3 text-center absolute text-slate-100 border bg-stone-600 bg-opacity-40 p-2 transition-all ease-linear duration-200">
-                <h4 className="uppercase relative md:text-lg">Up to 50% off</h4>
+                <h1 className="uppercase relative md:text-lg">Up to 50% off</h1>
                 <h1 className="uppercase font-semibold text-3xl">
                   {product.title}
                 </h1>
@@ -69,6 +68,6 @@ export default function OnSales() {
           ))}
         </div>
       </div>
-    </section>
+    </>
   );
 }

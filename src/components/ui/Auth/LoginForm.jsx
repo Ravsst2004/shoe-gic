@@ -1,4 +1,3 @@
-import React from "react";
 import Input from "../Input";
 import Button from "../Button";
 
@@ -41,7 +40,7 @@ export default function LoginForm() {
         <div className="text-sm leading-5">
           <a
             href="#"
-            className="font-medium text-red-500 hover:text-red-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+            className="font-medium text-red-600 hover:text-red-400 focus:outline-none focus:underline transition ease-in-out duration-150"
           >
             Forgot your password?
           </a>
@@ -52,7 +51,7 @@ export default function LoginForm() {
         <span className="block w-full rounded-md shadow-sm">
           <Button
             type="submit"
-            className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition duration-150 ease-in-out"
+            className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-700 transition duration-150 ease-in-out"
           >
             Sign in
           </Button>

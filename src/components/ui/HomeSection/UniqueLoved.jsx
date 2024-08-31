@@ -1,6 +1,4 @@
 import Slider from "react-slick";
-import Modal from "../Modal";
-import Card from "../Card";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowLeftLong } from "react-icons/fa6";
 
@@ -68,6 +66,7 @@ export default function UniqueLoved({ setActiveSlide, bestSellersShoes }) {
             <img
               key={index}
               src={shoe}
+              alt="Best Sellers"
               className="w-full object-cover md:object-fill h-[30rem] md:h-[40rem] rounded-xl"
             />
           ))}
@@ -80,6 +79,7 @@ export default function UniqueLoved({ setActiveSlide, bestSellersShoes }) {
               key={index}
               src={shoe}
               className="w-full object-cover h-[30rem] rounded-xl"
+              alt="Best Sellers"
             />
           ))}
         </div>

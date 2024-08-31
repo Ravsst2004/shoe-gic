@@ -1,4 +1,3 @@
-import React from "react";
 import Layouts from "../components/layouts/Layouts";
 import { FaRegUser } from "react-icons/fa";
 import reviewsUser from "../../data/reviews.json";
