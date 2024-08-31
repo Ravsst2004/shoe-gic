@@ -52,7 +52,7 @@ export default function UniqueLoved({ setActiveSlide, bestSellersShoes }) {
   return (
     <section className="w-full md:gap-y-5 bg-gray-200/80 text-slate-200 my-28 md:my-32 py-16">
       <div className="flex flex-col justify-center gap-y-6 overflow-hidden max-w-7xl mx-auto px-4 md:px-10">
-        <div className="text-center text-slate-950 lg:text-end ">
+        <div className="flex flex-col gap-y-2 text-center text-slate-950 lg:text-end ">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-center md:px-2 font-urbanist">
             Highly <span className="text-red-600 underline italic">Loved</span>{" "}
             Picks

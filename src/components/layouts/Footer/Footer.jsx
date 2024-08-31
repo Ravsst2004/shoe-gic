@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Footer() {
   const sitemap = [
     {
@@ -28,11 +26,13 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto py-10 text-center md:text-left text-slate-100">
           <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
             <div className="flex flex-col gap-y-2">
-              <h6 className="mb-4 text-4xl flex items-center justify-center font-semibold md:justify-start">
+              <h6 className="mb-4 text-3xl flex items-center justify-center font-semibold md:justify-start">
                 ShoeGic.
               </h6>
-              <p>PT. Jro Datuk Nusantara Jl. LoL No. 27, Blok B5 IShowSpeed</p>
-              <p className="md:mr-20 ">
+              <p className="text-sm">
+                PT. Jro Datuk Nusantara Jl. LoL No. 27, Blok B5 IShowSpeed
+              </p>
+              <p className="md:mr-20 text-sm">
                 At ShoeGic, we offer quality shoes for your comfort and style.
               </p>
             </div>
