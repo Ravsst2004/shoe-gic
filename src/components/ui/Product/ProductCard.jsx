@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import {
   FaArrowsUpDownLeftRight,
   FaCartShopping,
-  FaHeart,
 } from "react-icons/fa6";
 import { CartContext } from "../../../store/cartContext";
 

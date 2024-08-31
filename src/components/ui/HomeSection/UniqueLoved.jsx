@@ -58,8 +58,7 @@ export default function UniqueLoved({ setActiveSlide, bestSellersShoes }) {
             Picks
           </h1>
           <p className="text-sm text-center md:text-lg xl:text-xl xl:px-72">
-            Discover our top-selling items and see what makes them customer
-            favorites
+            Discover the products that have captured the hearts of our customers
           </p>
         </div>
 

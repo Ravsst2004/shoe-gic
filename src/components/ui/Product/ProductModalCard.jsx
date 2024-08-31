@@ -1,9 +1,6 @@
-import React, { useContext } from "react";
 import Form from "../Form";
-import { CartContext } from "../../../store/cartContext";
 
 export default function ProductModalCard({ selectedCard, setSelectedCard }) {
-  console.log(selectedCard);
   return (
     <div className="flex flex-col md:flex-row gap-4 bg-white rounded-lg p-2 lg:p-6">
       <div className="md:w-[40rem]">
