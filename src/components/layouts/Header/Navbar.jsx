@@ -128,7 +128,7 @@ export default function Navbar() {
           </div>
         </div>
         <div className="relative flex flex-col z-10 pt-4 max-w-7xl mx-auto">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center lg:px-4 xl:px-0">
             <Link to="/" className="text-3xl text-slate-950 font-bold">
               ShoeGic.
             </Link>

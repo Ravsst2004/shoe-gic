@@ -1,4 +1,6 @@
-export default function Select({ label, labelClassName, ...props }) {
+import React from "react";
+
+export default function Textarea({ label, labelClassName, ...props }) {
   return (
     <div>
       {label && (
@@ -6,7 +8,7 @@ export default function Select({ label, labelClassName, ...props }) {
           {label}
         </label>
       )}
-      <select {...props}></select>
+      <textarea {...props}></textarea>
     </div>
   );
 }

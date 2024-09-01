@@ -100,9 +100,12 @@ export default function CartMenu({ handleCloseCartMenu, showCartMenu }) {
             >
               VIEW CART
             </Link>
-            <Button className="bg-slate-950 hover:bg-red-600 transition-colors ease-linear duration-200 font-medium">
+            <Link
+              to="/checkout"
+              className="border-2 cursor-pointer p-2 text-center bg-slate-950 hover:bg-red-600 transition-colors ease-linear duration-200 font-medium"
+            >
               CHECKOUT
-            </Button>
+            </Link>
           </div>
         </div>
 

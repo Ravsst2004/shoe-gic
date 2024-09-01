@@ -11,6 +11,7 @@ import Registration from "./pages/Auth/Registration";
 import Contact from "./pages/Contact";
 import NotFound404 from "./pages/NotFound404";
 import Reviews from "./pages/Reviews";
+import Checkout from "./pages/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
     path: "/reviews",
     element: <Reviews />,
   },
+  {
+    path: "/checkout",
+    element: <Checkout />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
