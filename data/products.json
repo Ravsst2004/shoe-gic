@@ -2,14 +2,14 @@
   {
     "id": 1,
     "title": "Casual",
-    "image": "product1.jpg",
+    "image": "/image/products/product1.jpg",
     "price": 50,
     "description": "A comfortable and stylish casual sneaker for everyday wear."
   },
   {
     "id": 2,
     "title": "Schoolboy",
-    "image": "/public/image/products/product2.jpg",
+    "image": "/image/products/product2.jpg",
     "price": 40,
     "description": "A classic and timeless sneaker perfect for school or casual outings."
   },
