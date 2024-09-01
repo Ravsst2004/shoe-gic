@@ -42,7 +42,7 @@ export default function ProductCard({
 
       {/* Image */}
       <img
-        src={shoe.image}
+        src={`/public/image/products/${shoe.image}`}
         className="w-full lg:w-[22rem] h-full object-cover rounded-md"
         alt={shoe.title}
       />
