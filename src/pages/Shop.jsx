@@ -215,12 +215,11 @@ export default function Shop() {
           <ul className="inline-flex -space-x-px text-sm md:text-base lg:text-xl">
             {paginationNumber.map((number) => (
               <li key={number}>
-                <a
-                  href=""
-                  className="flex items-center justify-center px-3 h-8 leading-tight text-slate-950 bg-white border border-slate-600 hover:bg-gray-100 "
+                <p
+                  className="flex items-center justify-center cursor-pointer px-3 h-8 leading-tight text-slate-950 bg-white border border-slate-600 hover:bg-gray-100 "
                 >
                   {number}
-                </a>
+                </p>
               </li>
             ))}
           </ul>
