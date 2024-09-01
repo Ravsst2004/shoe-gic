@@ -97,7 +97,7 @@ export default function Checkout() {
 
           <div className="flex flex-col gap-4 mt-10 lg:mt-0 border-2 p-4 rounded-lg lg:w-[35%] lg:h-fit">
             {items && items.length > 0 ? (
-              <div>
+              <div className="flex flex-col gap-2">
                 <h1 className="text-xl font-semibold">Your order</h1>
                 <div className="flex justify-between items-center">
                   <span>Product</span>
