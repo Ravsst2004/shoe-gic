@@ -4,7 +4,7 @@ import OnSales from "../components/ui/HomeSection/OnSales";
 import Modal from "../components/ui/Modal";
 import ProductModalCard from "../components/ui/Product/ProductModalCard";
 import ProductCard from "../components/ui/Product/ProductCard";
-import products from "../../data/products.json";
+import products from "../data/products.json";
 import UniqueLoved from "../components/ui/HomeSection/UniqueLoved";
 import ClientFeedback from "../components/ui/HomeSection/ClientFeedback";
 
