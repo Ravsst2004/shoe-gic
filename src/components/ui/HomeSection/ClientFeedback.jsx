@@ -1,4 +1,4 @@
-import { FaArrowLeftLong, FaArrowRightLong, FaRegUser } from "react-icons/fa6";
+import { FaRegUser } from "react-icons/fa6";
 import Slider from "react-slick";
 import reviewsUser from "../../../../data/reviews.json";
 
