@@ -32,7 +32,7 @@ export default function OnSales() {
           <div className="absolute inset-0 bg-black opacity-30"></div>
           <div className="flex flex-col gap-y-3 text-center lg:text-start absolute text-slate-100">
             <h1 className="uppercase relative md:text-xl lg:text-3xl">
-              Up to {Math.floor(Math.random() * (50 - 30 + 1)) + 30}% off
+              Up to 20% off
             </h1>
             <h1 className="uppercase font-light text-3xl md:text-5xl lg:text-7xl">
               Exclusive

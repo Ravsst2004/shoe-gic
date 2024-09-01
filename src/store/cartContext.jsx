@@ -35,9 +35,7 @@ export default function CartContextProvider({ children }) {
           id: product.id,
           title: product.title,
           image: product.image,
-          price: product.discountedPrice
-            ? product.discountedPrice
-            : product.price,
+          price: product.price,
           quantity: 1,
         });
       }
@@ -67,7 +65,6 @@ export default function CartContextProvider({ children }) {
     });
   };
 
-  // CONTEXT VALUE
   const contextValue = {
     items: shoppingCart.items,
     handleAddItemToCart,

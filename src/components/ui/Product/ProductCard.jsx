@@ -5,7 +5,6 @@ import { CartContext } from "../../../store/cartContext";
 export default function ProductCard({
   shoe,
   handleOpenModal,
-  discountedPrice,
   discount = false,
 }) {
   const { handleAddItemToCart } = useContext(CartContext);
@@ -45,7 +44,7 @@ export default function ProductCard({
       <img
         src={shoe.image}
         className="w-full lg:w-[22rem] h-full object-cover rounded-md"
-        alt=""
+        alt={shoe.title}
       />
     </div>
   );

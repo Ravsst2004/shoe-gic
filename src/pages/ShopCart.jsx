@@ -4,7 +4,7 @@ import { CartContext } from "../store/cartContext";
 import { Link } from "react-router-dom";
 
 export default function ShopCart() {
-  const { items, handleUpdateItemQuantity, handleRemoveItemFromCart } =
+  const { items, handleUpdateItemQuantity } =
     useContext(CartContext);
 
   const subTotal = items.reduce((total, item) => {

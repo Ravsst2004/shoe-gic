@@ -55,7 +55,7 @@ export default function Home() {
       <section className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center justify-center mt-20 px-4 sm:px-10 md:gap-y-2">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-center md:px-2 font-urbanist">
-            Discover{" "}
+            Discover
             <span className="text-red-600 underline italic">Magic</span> in
             Every Shoes
           </h1>
@@ -66,13 +66,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 ">
             {featuredShoes.map((shoe, index) => {
-              const discountedPrice = shoe.price * (1 - 0.5);
-
               return (
                 <ProductCard
                   key={index}
                   shoe={shoe}
-                  discountedPrice={discountedPrice}
                   handleOpenModal={handleOpenModal}
                 />
               );
