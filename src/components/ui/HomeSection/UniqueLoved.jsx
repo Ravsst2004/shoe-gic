@@ -31,15 +31,6 @@ export default function UniqueLoved({ setActiveSlide, bestSellersShoes }) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // customPaging: (i) => {
-    //   return (
-    //     <div
-    //       className={`${
-    //         i === activeSlide ? "bg-slate-800" : "bg-slate-700"
-    //       } border-2 border-slate-700 rounded-full mt-3 w-4 h-4`}
-    //     ></div>
-    //   );
-    // },
     beforeChange: (current, next) => {
       setActiveSlide(next);
     },

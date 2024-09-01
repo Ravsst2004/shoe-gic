@@ -1,8 +1,5 @@
 import { useContext } from "react";
-import {
-  FaArrowsUpDownLeftRight,
-  FaCartShopping,
-} from "react-icons/fa6";
+import { FaArrowsUpDownLeftRight, FaCartShopping } from "react-icons/fa6";
 import { CartContext } from "../../../store/cartContext";
 
 export default function ProductCard({
@@ -37,7 +34,6 @@ export default function ProductCard({
               description: shoe.description,
               image: shoe.image,
               price: shoe.price,
-              discountedPrice: discountedPrice,
             })
           }
           className="cursor-pointer bg-slate-100 bg-opacity-15 border-2 rounded p-2 hover:bg-red-600 transition-colors ease-in"

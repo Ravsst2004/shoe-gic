@@ -49,7 +49,7 @@ const router = createBrowserRouter([
   {
     path: "/checkout",
     element: <Checkout />,
-  }
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

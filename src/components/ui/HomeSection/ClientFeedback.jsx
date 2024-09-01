@@ -1,4 +1,4 @@
-import { FaRegUser } from "react-icons/fa6";
+import { FaArrowLeftLong, FaArrowRightLong, FaRegUser } from "react-icons/fa6";
 import Slider from "react-slick";
 import reviewsUser from "../../../../data/reviews.json";
 
@@ -6,7 +6,6 @@ export default function ClientFeedback() {
   const reviews = reviewsUser.slice(0, 4);
 
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -14,7 +13,7 @@ export default function ClientFeedback() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 my-28 sm:px-10">
+    <div className="lg:max-w-7xl mx-auto px-4 my-28 sm:px-10">
       <div className="flex flex-col gap-y-2 text-center">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold">
           <span className="text-red-600 underline italic">Client</span> Feedback
@@ -25,13 +24,10 @@ export default function ClientFeedback() {
       </div>
 
       {/* Mobile */}
-      <div className="flex flex-col my-4 md:flex-row gap-4 md:gap-10 md:hidden">
-        <Slider {...settings}>
+      <div className="flex flex-col my-4 md:flex-row gap-4 md:gap-10 rounded-xl shadow-md shadow-slate-900/10 overflow-clip md:hidden">
+        <Slider {...settings} className="cursor-pointer">
           {reviews.map((review, index) => (
-            <figure
-              key={index}
-              className="relative rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10"
-            >
+            <figure key={index} className="relative bg-white p-6">
               <svg
                 aria-hidden="true"
                 width="105"
