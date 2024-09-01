@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import products from "../../data/products.json";
-// import products from "../data/products.js";
 import Layouts from "../components/layouts/Layouts";
 import ProductCard from "../components/ui/Product/ProductCard";
 import ProductModalCard from "../components/ui/Product/ProductModalCard";
