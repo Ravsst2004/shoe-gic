@@ -44,7 +44,7 @@ export default function Home() {
     {
       id: 1,
       title: "Casual",
-      image: "/public/image/products/product1.jpg",
+      image: productImg1,
       price: 50,
       description:
         "A comfortable and stylish casual sneaker for everyday wear.",
@@ -52,7 +52,7 @@ export default function Home() {
     {
       id: 2,
       title: "Schoolboy",
-      image: "/public/image/products/product2.jpg",
+      image: productImg2,
       price: 40,
       description:
         "A classic and timeless sneaker perfect for school or casual outings.",
@@ -60,7 +60,7 @@ export default function Home() {
     {
       id: 3,
       title: "Casual Running",
-      image: "/public/image/products/product3.jpg",
+      image: productImg3,
       price: 60,
       description:
         "A versatile sneaker designed for both running and casual activities.",
@@ -68,21 +68,21 @@ export default function Home() {
     {
       id: 4,
       title: "Forzed",
-      image: "/public/image/products/product4.jpg",
+      image: productImg4,
       price: 55,
       description: "A stylish and modern sneaker with a bold design.",
     },
     {
       id: 5,
       title: "Casual zip",
-      image: "/public/image/products/product5.jpg",
+      image: productImg5,
       price: 75,
       description: "A casual sneaker with a zipper detail for added style.",
     },
     {
       id: 6,
       title: "Party Van",
-      image: "/public/image/products/product6.jpg",
+      image: productImg6,
       price: 65,
       description:
         "A fun and colorful sneaker perfect for parties or festivals.",
@@ -90,14 +90,14 @@ export default function Home() {
     {
       id: 7,
       title: "Goliath",
-      image: "/public/image/products/product7.jpg",
+      image: productImg7,
       price: 85,
       description: "A durable and high-performance sneaker for athletes.",
     },
     {
       id: 8,
       title: "Just gimme my money 🤫",
-      image: "/public/image/products/product8.jpg",
+      image: productImg8,
       price: 45,
       description: "A budget-friendly sneaker with a stylish design.",
     },
