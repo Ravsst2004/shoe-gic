@@ -9,6 +9,20 @@ import UniqueLoved from "../components/ui/HomeSection/UniqueLoved";
 import ClientFeedback from "../components/ui/HomeSection/ClientFeedback";
 
 import productImg1 from "../../public/image/products/product1.jpg";
+import productImg2 from "../../public/image/products/product2.jpg";
+import productImg3 from "../../public/image/products/product3.jpg";
+import productImg4 from "../../public/image/products/product4.jpg";
+import productImg5 from "../../public/image/products/product5.jpg";
+import productImg6 from "../../public/image/products/product6.jpg";
+import productImg7 from "../../public/image/products/product7.jpg";
+import productImg8 from "../../public/image/products/product8.jpg";
+import productImg9 from "../../public/image/products/product9.jpg";
+import productImg10 from "../../public/image/products/product10.jpg";
+import productImg11 from "../../public/image/products/product11.jpg";
+import productImg12 from "../../public/image/products/product12.jpg";
+import productImg13 from "../../public/image/products/product13.jpg";
+import productImg14 from "../../public/image/products/product14.jpg";
+import productImg15 from "../../public/image/products/product15.jpg";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -16,12 +30,12 @@ export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const bestSellersShoes = [
-    "/public/image/products/product (14).jpg",
-    "/public/image/products/product (12).jpg",
-    "/public/image/products/product (9).jpg",
-    "/public/image/products/product (15).jpg",
+    productImg14,
+    productImg12,
+    productImg9,
+    productImg15,
     productImg1,
-    "/public/image/products/product (5).jpg",
+    productImg5,
   ];
 
   const featuredShoes = products.slice(0, 8);
