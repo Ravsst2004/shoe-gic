@@ -10,6 +10,23 @@ import { BsFillGrid3X3GapFill } from "react-icons/bs";
 import { FaList } from "react-icons/fa6";
 import Button from "../components/ui/Button";
 
+// INI MANUAL IMPORT DARI JSON GAGAL UNTUK PERCOBAAN
+import productImg1 from "../../public/image/products/product1.jpg";
+import productImg2 from "../../public/image/products/product2.jpg";
+import productImg3 from "../../public/image/products/product3.jpg";
+import productImg4 from "../../public/image/products/product4.jpg";
+import productImg5 from "../../public/image/products/product5.jpg";
+import productImg6 from "../../public/image/products/product6.jpg";
+import productImg7 from "../../public/image/products/product7.jpg";
+import productImg8 from "../../public/image/products/product8.jpg";
+import productImg9 from "../../public/image/products/product9.jpg";
+import productImg10 from "../../public/image/products/product10.jpg";
+import productImg11 from "../../public/image/products/product11.jpg";
+import productImg12 from "../../public/image/products/product12.jpg";
+import productImg13 from "../../public/image/products/product13.jpg";
+import productImg14 from "../../public/image/products/product14.jpg";
+import productImg15 from "../../public/image/products/product15.jpg";
+
 export default function Shop() {
   const [showModal, setShowModal] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
@@ -90,7 +107,7 @@ export default function Shop() {
     {
       id: 1,
       title: "Casual",
-      image: "/public/image/products/product1.jpg",
+      image: productImg1,
       price: 50,
       description:
         "A comfortable and stylish casual sneaker for everyday wear.",
@@ -98,7 +115,7 @@ export default function Shop() {
     {
       id: 2,
       title: "Schoolboy",
-      image: "/public/image/products/product2.jpg",
+      image: productImg2,
       price: 40,
       description:
         "A classic and timeless sneaker perfect for school or casual outings.",
@@ -106,7 +123,7 @@ export default function Shop() {
     {
       id: 3,
       title: "Casual Running",
-      image: "/public/image/products/product3.jpg",
+      image: productImg3,
       price: 60,
       description:
         "A versatile sneaker designed for both running and casual activities.",
@@ -114,21 +131,21 @@ export default function Shop() {
     {
       id: 4,
       title: "Forzed",
-      image: "/public/image/products/product4.jpg",
+      image: productImg4,
       price: 55,
       description: "A stylish and modern sneaker with a bold design.",
     },
     {
       id: 5,
       title: "Casual zip",
-      image: "/public/image/products/product5.jpg",
+      image: productImg5,
       price: 75,
       description: "A casual sneaker with a zipper detail for added style.",
     },
     {
       id: 6,
       title: "Party Van",
-      image: "/public/image/products/product6.jpg",
+      image: productImg6,
       price: 65,
       description:
         "A fun and colorful sneaker perfect for parties or festivals.",
@@ -136,21 +153,21 @@ export default function Shop() {
     {
       id: 7,
       title: "Goliath",
-      image: "/public/image/products/product7.jpg",
+      image: productImg7,
       price: 85,
       description: "A durable and high-performance sneaker for athletes.",
     },
     {
       id: 8,
       title: "Just gimme my money 🤫",
-      image: "/public/image/products/product8.jpg",
+      image: productImg8,
       price: 45,
       description: "A budget-friendly sneaker with a stylish design.",
     },
     {
       id: 9,
       title: "Speedy",
-      image: "/public/image/products/product9.jpg",
+      image: productImg9,
       price: 50,
       description:
         "A lightweight and comfortable sneaker perfect for running or walking.",
@@ -158,14 +175,14 @@ export default function Shop() {
     {
       id: 10,
       title: "Zippy Zip",
-      image: "/public/image/products/product10.jpg",
+      image: productImg10,
       price: 70,
       description: "A stylish sneaker with a zipper detail for added flair.",
     },
     {
       id: 11,
       title: "Crazy School",
-      image: "/public/image/products/product11.jpg",
+      image: productImg11,
       price: 55,
       description:
         "A fun and colorful sneaker perfect for school or casual outings.",
@@ -173,7 +190,7 @@ export default function Shop() {
     {
       id: 12,
       title: "Running Boost",
-      image: "/public/image/products/product12.jpg",
+      image: productImg12,
       price: 55,
       description:
         "A high-performance sneaker designed for running and other athletic activities.",
@@ -181,14 +198,14 @@ export default function Shop() {
     {
       id: 13,
       title: "Good Vibes",
-      image: "/public/image/products/product13.jpg",
+      image: productImg13,
       price: 55,
       description: "A positive and uplifting sneaker with a vibrant design.",
     },
     {
       id: 14,
       title: "Fly Fast",
-      image: "/public/image/products/product14.jpg",
+      image: productImg14,
       price: 55,
       description:
         "A lightweight and breathable sneaker perfect for running or other high-intensity activities.",
@@ -196,18 +213,17 @@ export default function Shop() {
     {
       id: 15,
       title: "Redyred",
-      image: "/public/image/products/product15.jpg",
+      image: productImg15,
       price: 55,
       description: "A bold and stylish sneaker in a vibrant red color.",
     },
     {
       id: 16,
       title: "Cutepancy",
-      image: "/public/image/products/product16.jpg",
+      image: productImg16,
       price: 55,
       description: "A cute and girly sneaker perfect for casual outings.",
     },
-    ,
   ];
 
   return (
