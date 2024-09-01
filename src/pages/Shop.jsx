@@ -196,7 +196,6 @@ export default function Shop() {
                   showModal={showModal}
                   selectedCard={selectedCard}
                   setSelectedCard={setSelectedCard}
-                  products={products}
                 />
               ) : (
                 <ListMode
@@ -206,7 +205,6 @@ export default function Shop() {
                   selectedCard={selectedCard}
                   setSelectedCard={setSelectedCard}
                   handleAddItemToCart={handleAddItemToCart}
-                  products={products}
                 />
               )}
             </div>
@@ -238,7 +236,6 @@ function GridMode({
   showModal,
   selectedCard,
   setSelectedCard,
-  products,
 }) {
   return (
     <>
@@ -273,7 +270,6 @@ function ListMode({
   selectedCard,
   setSelectedCard,
   handleAddItemToCart,
-  products,
 }) {
   return (
     <>
