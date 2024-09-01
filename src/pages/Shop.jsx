@@ -26,6 +26,7 @@ import productImg12 from "../../public/image/products/product12.jpg";
 import productImg13 from "../../public/image/products/product13.jpg";
 import productImg14 from "../../public/image/products/product14.jpg";
 import productImg15 from "../../public/image/products/product15.jpg";
+import productImg16 from "../../public/image/products/product16.jpg";
 
 export default function Shop() {
   const [showModal, setShowModal] = useState(false);
