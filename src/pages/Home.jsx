@@ -8,6 +8,8 @@ import products from "../../data/products.json";
 import UniqueLoved from "../components/ui/HomeSection/UniqueLoved";
 import ClientFeedback from "../components/ui/HomeSection/ClientFeedback";
 
+import productImg1 from "../../public/image/products/product1.jpg";
+
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
@@ -18,7 +20,7 @@ export default function Home() {
     "/public/image/products/product (12).jpg",
     "/public/image/products/product (9).jpg",
     "/public/image/products/product (15).jpg",
-    "../../public/image/products/product1.jpg",
+    productImg1,
     "/public/image/products/product (5).jpg",
   ];
 
