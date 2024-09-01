@@ -18,7 +18,7 @@ export default function Home() {
     "/public/image/products/product (12).jpg",
     "/public/image/products/product (9).jpg",
     "/public/image/products/product (15).jpg",
-    "/public/image/products/product (2).jpg",
+    "/public/image/products/product1.jpg",
     "/public/image/products/product (5).jpg",
   ];
 
