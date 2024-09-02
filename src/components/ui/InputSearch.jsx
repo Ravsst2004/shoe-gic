@@ -15,7 +15,7 @@ export default function InputSearch({ handleCloseSearch, closeButton }) {
         </div>
       )}
 
-      <div className="flex">
+      <div className="flex px-6 sm:px-0">
         <Input
           type="text"
           placeholder="Search..."
