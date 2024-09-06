@@ -10,7 +10,7 @@ export const CartContext = createContext({
 
 export default function CartContextProvider({ children }) {
   const [shoppingCart, setShoppingCart] = useState({
-    items: [],
+    items: JSON.parse(localStorage.getItem("shoppingCart")) || [],
   });
 
   const handleAddItemToCart = (id) => {
@@ -40,6 +40,8 @@ export default function CartContextProvider({ children }) {
         });
       }
 
+      localStorage.setItem("shoppingCart", JSON.stringify(updatedItems));
+
       return { items: updatedItems };
     });
   };
@@ -52,6 +54,11 @@ export default function CartContextProvider({ children }) {
         )
         .filter((item) => item.quantity > 0);
 
+      localStorage.setItem("shoppingCart", JSON.stringify(updatedItem));
+      if (updatedItem.length <= 0) {
+        localStorage.removeItem("shoppingCart");
+      }
+
       return {
         items: updatedItem,
       };
@@ -61,6 +68,11 @@ export default function CartContextProvider({ children }) {
   const handleRemoveItemFromCart = (id) => {
     setShoppingCart((prevState) => {
       const updatedItems = prevState.items.filter((item) => item.id !== id);
+
+      if (updatedItems.length <= 0) {
+        localStorage.removeItem("shoppingCart");
+      }
+
       return { items: updatedItems };
     });
   };
