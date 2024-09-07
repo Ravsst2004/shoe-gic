@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import SlidingContent from "../SlidingText";
 
 function NextArrow({ onClick }) {
   return (
@@ -42,13 +43,16 @@ export default function UniqueLoved({ setActiveSlide, bestSellersShoes }) {
     <section className="w-full md:gap-y-5 bg-gray-200/80 text-slate-200 my-28 md:my-32 py-16">
       <div className="flex flex-col justify-center gap-y-6 overflow-hidden max-w-7xl mx-auto px-4 md:px-10">
         <div className="flex flex-col gap-y-2 text-center text-slate-950 lg:text-end ">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-center md:px-2 font-urbanist">
-            Highly <span className="text-red-600 underline italic">Loved</span>{" "}
-            Picks
-          </h1>
-          <p className="text-sm text-center md:text-lg xl:text-xl xl:px-72">
-            Discover the products that have captured the hearts of our customers
-          </p>
+          <SlidingContent above>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-center md:px-2 font-urbanist">
+              Highly{" "}
+              <span className="text-red-600 underline italic">Loved</span> Picks
+            </h1>
+            <p className="text-sm text-center md:text-lg xl:text-xl xl:px-72">
+              Discover the products that have captured the hearts of our
+              customers
+            </p>
+          </SlidingContent>
         </div>
 
         {/* Mobile Best Sellers */}
@@ -66,12 +70,17 @@ export default function UniqueLoved({ setActiveSlide, bestSellersShoes }) {
         {/* Desktop Best Sellers */}
         <div className="hidden sm:grid w-full sm:grid-cols-2 xl:grid-cols-3 gap-4 justify-center items-center">
           {bestSellersShoes.map((shoe, index) => (
-            <img
+            <SlidingContent
+              left={index % 2 === 0}
+              right={index % 2 !== 0}
               key={index}
-              src={shoe}
-              className="w-full object-cover h-[30rem] rounded-xl"
-              alt="Best Sellers"
-            />
+            >
+              <img
+                src={shoe}
+                className="w-full object-cover h-[30rem] rounded-xl"
+                alt="Best Sellers"
+              />
+            </SlidingContent>
           ))}
         </div>
       </div>

@@ -14,6 +14,7 @@ import productImg9 from "../../public/image/products/product9.jpg";
 import productImg12 from "../../public/image/products/product12.jpg";
 import productImg14 from "../../public/image/products/product14.jpg";
 import productImg15 from "../../public/image/products/product15.jpg";
+import SlidingContent from "../components/ui/SlidingText";
 
 export default function Home() {
   const [showModal, setShowModal] = useState(false);
@@ -54,24 +55,28 @@ export default function Home() {
 
       <section className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center justify-center mt-20 px-4 sm:px-10 md:gap-y-2">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-center md:px-2 font-urbanist">
-            Discover
-            <span className="text-red-600 underline italic">Magic</span> in
-            Every Shoes
-          </h1>
-          <p className="relative z-10 text-sm text-center md:text-lg xl:text-xl xl:px-72">
-            With our curated selection of high-quality shoes, we invite you to
-            experience the extraordinary.
-          </p>
+          <SlidingContent above>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-center md:px-2 font-urbanist">
+              Discover
+              <span className="text-red-600 underline italic">Magic</span> in
+              Every Shoes
+            </h1>
+            <p className="relative z-10 text-sm text-center md:text-lg xl:text-xl xl:px-72">
+              With our curated selection of high-quality shoes, we invite you to
+              experience the extraordinary.
+            </p>
+          </SlidingContent>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6 ">
             {featuredShoes.map((shoe, index) => {
               return (
-                <ProductCard
+                <SlidingContent
                   key={index}
-                  shoe={shoe}
-                  handleOpenModal={handleOpenModal}
-                />
+                  above={index % 2 === 0}
+                  bottom={index % 2 !== 0}
+                >
+                  <ProductCard shoe={shoe} handleOpenModal={handleOpenModal} />
+                </SlidingContent>
               );
             })}
 
