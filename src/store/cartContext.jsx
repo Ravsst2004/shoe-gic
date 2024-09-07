@@ -8,9 +8,17 @@ export const CartContext = createContext({
   handleRemoveItemFromCart: () => {},
 });
 
+const storeProductData = JSON.parse(localStorage.getItem("shoppingCart")) || [];
+const storeProduct = storeProductData
+  .map((storedItem) => {
+    const product = products.find((product) => product.id === storedItem.id);
+    return product ? { ...product, quantity: storedItem.quantity } : null;
+  })
+  .filter(Boolean);
+
 export default function CartContextProvider({ children }) {
   const [shoppingCart, setShoppingCart] = useState({
-    items: JSON.parse(localStorage.getItem("shoppingCart")) || [],
+    items: storeProduct || [],
   });
 
   const handleAddItemToCart = (id) => {
@@ -40,7 +48,11 @@ export default function CartContextProvider({ children }) {
         });
       }
 
-      localStorage.setItem("shoppingCart", JSON.stringify(updatedItems));
+      const storedItems = updatedItems.map((item) => ({
+        id: item.id,
+        quantity: item.quantity,
+      }));
+      localStorage.setItem("shoppingCart", JSON.stringify(storedItems));
 
       return { items: updatedItems };
     });
@@ -48,19 +60,24 @@ export default function CartContextProvider({ children }) {
 
   const handleUpdateItemQuantity = (id, amount) => {
     setShoppingCart((prevState) => {
-      const updatedItem = prevState.items
+      const updatedItems = prevState.items
         .map((item) =>
           item.id === id ? { ...item, quantity: item.quantity + amount } : item
         )
         .filter((item) => item.quantity > 0);
 
-      localStorage.setItem("shoppingCart", JSON.stringify(updatedItem));
-      if (updatedItem.length <= 0) {
+      const storedItems = updatedItems.map((item) => ({
+        id: item.id,
+        quantity: item.quantity,
+      }));
+      localStorage.setItem("shoppingCart", JSON.stringify(storedItems));
+
+      if (updatedItems.length <= 0) {
         localStorage.removeItem("shoppingCart");
       }
 
       return {
-        items: updatedItem,
+        items: updatedItems,
       };
     });
   };
@@ -71,6 +88,12 @@ export default function CartContextProvider({ children }) {
 
       if (updatedItems.length <= 0) {
         localStorage.removeItem("shoppingCart");
+      } else {
+        const storedItems = updatedItems.map((item) => ({
+          id: item.id,
+          quantity: item.quantity,
+        }));
+        localStorage.setItem("shoppingCart", JSON.stringify(storedItems));
       }
 
       return { items: updatedItems };

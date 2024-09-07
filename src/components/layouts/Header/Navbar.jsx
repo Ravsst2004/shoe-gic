@@ -16,9 +16,11 @@ export default function Navbar() {
   const [showCart, setShowCart] = useState(false);
   const { items } = useContext(CartContext);
 
+  // console.log(items);
   const totalItemInCart = items.reduce((total, item) => {
     return total + item.quantity;
   }, 0);
+  // console.log(totalItemInCart);
 
   const handleShowSearch = () => {
     showSearch ? setShowSearch(false) : setShowSearch(true);
